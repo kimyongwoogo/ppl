@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>손에잡히는경제 PPL — marketingCloud</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --mg:#E8006F;        /* 마젠타 키컬러 */
+  --mg2:#FF1A85;       /* 밝은 마젠타 */
+  --mg-dim:rgba(232,0,111,.08);
+  --bg:#ffffff;
+  --bg2:#F7F7F7;
+  --bg3:#111111;
+  --txt:#111111;
+  --mid:#666666;
+  --line:#E8E8E8;
+}
+
+body{font-family:'Noto Sans KR',sans-serif;background:#fff;color:var(--txt);overflow-x:hidden}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1.5px solid var(--line);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--mg)}
+.logo-txt{font-size:14px;font-weight:700;color:var(--txt);letter-spacing:-.02em}
+.logo-sub{font-size:11px;font-weight:400;color:var(--mid)}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nl{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;padding:7px 14px;border-radius:6px;transition:all .2s}
+.nl:hover{color:var(--txt);background:var(--bg2)}
+.nav-cta{font-size:12px;font-weight:700;color:#fff;background:var(--mg);padding:9px 20px;border-radius:8px;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--mg2);transform:translateY(-1px)}
+
+/* ─── HERO ─── */
+.hero{padding:128px 48px 80px;background:#fff;border-bottom:1.5px solid var(--line)}
+.hero-inner{max-width:1240px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--mg-dim);border:1px solid rgba(232,0,111,.2);color:var(--mg);font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;margin-bottom:32px;letter-spacing:.06em;text-transform:uppercase}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--mg)}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,11vw,152px);line-height:.9;letter-spacing:.01em;margin-bottom:24px}
+.hero-title .line1{color:var(--txt)}
+.hero-title .line2{color:var(--mg);display:block}
+.hero-title .line3{color:var(--txt);-webkit-text-stroke:2px var(--txt);color:transparent}
+.hero-sub{font-size:17px;font-weight:300;color:var(--mid);line-height:1.8;max-width:500px;margin-bottom:52px}
+.hero-sub b{color:var(--txt);font-weight:700}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#fff;background:var(--mg);padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .22s}
+.btn-primary:hover{background:var(--mg2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(232,0,111,.28)}
+.btn-sec{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--txt);background:#fff;border:1.5px solid var(--line);padding:14px 28px;border-radius:10px;text-decoration:none;transition:all .22s}
+.btn-sec:hover{border-color:var(--mg);color:var(--mg)}
+.hero-kpis{display:flex;gap:0;margin-top:64px;border:1.5px solid var(--line);border-radius:16px;overflow:hidden}
+.hkpi{flex:1;padding:28px 32px;border-right:1.5px solid var(--line);text-align:center}
+.hkpi:last-child{border-right:none}
+.hkpi-n{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--mg);line-height:1;display:block;margin-bottom:4px}
+.hkpi-l{font-size:11px;font-weight:500;color:var(--mid);letter-spacing:.04em}
+
+/* ─── MARQUEE ─── */
+.mq-wrap{background:var(--mg);overflow:hidden;padding:13px 0}
+.mq-track{display:flex;white-space:nowrap;animation:mq 22s linear infinite}
+.mq-item{display:inline-flex;align-items:center;gap:18px;padding:0 18px;font-size:12px;font-weight:700;color:#fff;letter-spacing:.1em;text-transform:uppercase}
+.mq-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);flex-shrink:0}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTION BASE ─── */
+.sec{padding:96px 48px;border-bottom:1.5px solid var(--line)}
+.sec-inner{max-width:1240px;margin:0 auto}
+.sec-tag{font-size:10px;font-weight:700;color:var(--mg);letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.sec-tag::before{content:'';width:20px;height:2px;background:var(--mg)}
+.sec-title{font-size:clamp(32px,4.2vw,52px);font-weight:900;line-height:1.1;letter-spacing:-.03em;margin-bottom:16px}
+.sec-desc{font-size:15px;font-weight:300;color:var(--mid);line-height:1.85;max-width:560px}
+
+/* ─── WHY — 픽토그램 카드 ─── */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:var(--line);margin-top:56px;border:1.5px solid var(--line);border-radius:16px;overflow:hidden}
+.wcard{background:#fff;padding:40px 32px;transition:background .2s}
+.wcard:hover{background:var(--mg-dim)}
+.wicon{width:56px;height:56px;background:var(--mg-dim);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:26px;transition:background .2s}
+.wcard:hover .wicon{background:rgba(232,0,111,.15)}
+.wbig{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--mg);line-height:1;display:block;margin-bottom:8px}
+.wtit{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-.02em}
+.wdesc{font-size:13px;font-weight:400;color:var(--mid);line-height:1.75}
+
+/* ─── AUDIENCE ─── */
+.aud-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;margin-top:56px;align-items:start}
+.aud-chart{border:1.5px solid var(--line);border-radius:16px;overflow:hidden}
+.ach-head{background:var(--mg);padding:20px 28px;display:flex;align-items:center;gap:10px}
+.ach-head span{font-size:13px;font-weight:700;color:#fff}
+.ach-body{padding:28px}
+.abar-row{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.abar-row:last-child{margin-bottom:0}
+.abar-label{font-size:12px;font-weight:500;color:var(--mid);width:64px;flex-shrink:0;text-align:right}
+.abar-track{flex:1;height:8px;background:var(--bg2);border-radius:100px;overflow:hidden}
+.abar-fill{height:100%;border-radius:100px;background:var(--line);width:0;transition:width 1.4s cubic-bezier(.16,1,.3,1)}
+.abar-fill.hi{background:var(--mg)}
+.abar-val{font-size:12px;font-weight:700;color:var(--txt);width:36px;flex-shrink:0}
+.aud-cards{display:flex;flex-direction:column;gap:14px}
+.acard{border:1.5px solid var(--line);border-radius:14px;padding:24px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s,transform .2s}
+.acard:hover{border-color:var(--mg);transform:translateX(4px)}
+.acard-icon{width:44px;height:44px;border-radius:10px;background:var(--mg-dim);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.acard-n{font-size:20px;font-weight:900;color:var(--mg);letter-spacing:-.02em;line-height:1}
+.acard-l{font-size:12px;font-weight:400;color:var(--mid);margin-top:3px}
+
+/* ─── CASES ─── */
+.cases-grid{display:flex;flex-direction:column;gap:0;margin-top:56px;border:1.5px solid var(--line);border-radius:16px;overflow:hidden}
+.case-row{display:grid;grid-template-columns:64px 1fr 1.8fr auto;gap:32px;align-items:center;padding:32px 36px;border-bottom:1.5px solid var(--line);background:#fff;transition:background .2s}
+.case-row:last-child{border-bottom:none}
+.case-row:hover{background:var(--mg-dim)}
+.cidx{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--line);transition:color .2s;line-height:1}
+.case-row:hover .cidx{color:var(--mg)}
+.ccat{font-size:10px;font-weight:700;color:var(--mg);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.cname{font-size:18px;font-weight:700;letter-spacing:-.02em}
+.cres-list{display:flex;flex-direction:column;gap:7px}
+.cres-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:400;color:var(--mid)}
+.cres-item::before{content:'→';color:var(--mg);font-weight:700;font-size:12px}
+.cres-item b{color:var(--txt);font-weight:700}
+.cbadge{font-family:'Bebas Neue',sans-serif;font-size:58px;color:var(--mg);line-height:1;text-align:right;white-space:nowrap}
+
+/* ─── PRICING ─── */
+.pricing-bg{background:var(--bg3)}
+.pricing-bg .sec-tag{color:var(--mg)}
+.pricing-bg .sec-tag::before{background:var(--mg)}
+.pricing-bg .sec-title{color:#fff}
+.pricing-bg .sec-desc{color:#aaa}
+.urgency{display:inline-flex;align-items:center;gap:10px;background:rgba(232,0,111,.15);border:1px solid rgba(232,0,111,.4);color:#fff;font-size:12px;font-weight:500;padding:10px 18px;border-radius:8px;margin-top:20px;margin-bottom:52px}
+.urgency-dot{width:8px;height:8px;border-radius:50%;background:var(--mg);animation:pulse2 1.5s ease-in-out infinite}
+@keyframes pulse2{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.price-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.pcard{background:#1c1c1c;border:1.5px solid #333;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s;cursor:default}
+.pcard:hover{border-color:var(--mg);transform:translateY(-3px)}
+.pcard.featured{background:var(--mg);border-color:var(--mg)}
+.pcard.featured *{--mid:#ffffffbb}
+.picon{font-size:32px;display:block;margin-bottom:4px}
+.ptag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(232,0,111,.2);color:var(--mg);width:fit-content}
+.pcard.featured .ptag{background:rgba(255,255,255,.25);color:#fff}
+.pname{font-size:14px;font-weight:700;color:#fff;line-height:1.4;margin-top:4px}
+.pdesc{font-size:11px;font-weight:400;color:#888;line-height:1.7;flex:1}
+.pcard.featured .pdesc{color:rgba(255,255,255,.75)}
+.pprice{font-family:'Bebas Neue',sans-serif;font-size:48px;color:#fff;line-height:1;margin-top:auto}
+.pprice sub{font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:400;color:#888}
+.pcard.featured .pprice sub{color:rgba(255,255,255,.7)}
+.pnote{margin-top:20px;font-size:11px;color:#666;line-height:1.85;border-top:1px solid #2a2a2a;padding-top:20px}
+
+/* ─── PROCESS ─── */
+.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:56px;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;background:var(--line)}
+.pstep{background:#fff;padding:36px 24px;text-align:center;position:relative}
+.pstep::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--mg);font-weight:900;z-index:2}
+.pstep:last-child::after{display:none}
+.step-icon{font-size:36px;display:block;margin-bottom:16px}
+.step-day{font-size:10px;font-weight:700;color:var(--mg);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.step-name{font-size:14px;font-weight:700;margin-bottom:4px;letter-spacing:-.02em}
+.step-desc{font-size:11px;color:var(--mid);line-height:1.65}
+
+
+
+/* ─── CTA ─── */
+.cta-sec{background:var(--bg3);padding:96px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-bg-txt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:clamp(120px,22vw,300px);color:rgba(255,255,255,.025);pointer-events:none;user-select:none;letter-spacing:.05em;white-space:nowrap}
+.cta-inner{position:relative;max-width:680px;margin:0 auto}
+.cta-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,0,111,.2);border:1px solid rgba(232,0,111,.4);color:var(--mg);font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;margin-bottom:24px;letter-spacing:.08em;text-transform:uppercase}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,110px);color:#fff;line-height:.92;margin-bottom:20px}
+.cta-title .mg{color:var(--mg)}
+.cta-desc{font-size:15px;font-weight:300;color:#aaa;margin-bottom:44px;line-height:1.9}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.cta-contact{margin-top:48px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+.cc-item{font-size:13px;font-weight:400;color:#888;display:flex;align-items:center;gap:8px}
+.cc-item a{color:#ccc;text-decoration:none;transition:color .2s}
+.cc-item a:hover{color:var(--mg)}
+.cc-dot{font-size:16px}
+.cta-cr{margin-top:52px;font-size:10px;color:#444;letter-spacing:.1em;text-transform:uppercase}
+
+/* ─── REVEAL ─── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+
+
+@media(max-width:1024px){
+  .why-grid,.price-grid,.proc-grid{grid-template-columns:repeat(2,1fr)}
+  .aud-layout{grid-template-columns:1fr}
+  .pstep::after{display:none}
+}
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links .nl{display:none}
+  .hero,.sec,.cta-sec{padding-left:20px;padding-right:20px}
+  .hero-kpis{flex-wrap:wrap}
+  .hkpi{flex:calc(50% - 1px)}
+  .cases-grid .case-row{grid-template-columns:1fr 1fr;gap:12px}
+  .cbadge{display:none}
+  .cta-contact{flex-direction:column;gap:14px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-dot"></div>
+    <div>
+      <div class="logo-txt">marketingCloud</div>
+      <div class="logo-sub">손에잡히는경제 PPL</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#why" class="nl">채널소개</a>
+    <a href="#cases" class="nl">집행사례</a>
+    <a href="#pricing" class="nl">단가표</a>
+    <a href="mailto:content@macloud.co.kr?subject=손에잡히는경제 PPL 광고 문의&body=안녕하세요, PPL 광고 문의드립니다.%0A%0A회사명: %0A담당자명: %0A연락처: " class="nav-cta">문의하기 →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">MBC 손에잡히는경제 × PPL 콘텐츠 제안</div>
+    <h1 class="hero-title">
+      <span class="line1">TRUST</span>
+      <span class="line2">BECOMES</span>
+      <span class="line3">SALES.</span>
+    </h1>
+    <p class="hero-sub">14년간 대한민국 경제를 이끌어 온 채널.<br><b>광고가 아닌 신뢰</b>로 작동하는 브랜드 PPL.<br>마케팅클라우드가 직접 운영합니다.</p>
+    <div class="hero-actions">
+      <a href="mailto:content@macloud.co.kr?subject=손에잡히는경제 PPL 광고 문의&body=안녕하세요, PPL 광고 문의드립니다.%0A%0A회사명: %0A담당자명: %0A연락처: " class="btn-primary">📩 지금 문의하기</a>
+      <a href="#pricing" class="btn-sec">단가표 보기 ↓</a>
+    </div>
+    <div class="hero-kpis">
+      <div class="hkpi"><span class="hkpi-n">40만</span><span class="hkpi-l">유튜브 구독자</span></div>
+      <div class="hkpi"><span class="hkpi-n">17.7만</span><span class="hkpi-l">일평균 조회수</span></div>
+      <div class="hkpi"><span class="hkpi-n">1,000%</span><span class="hkpi-l">PPL 비용 대비 매출 사례</span></div>
+      <div class="hkpi"><span class="hkpi-n">110+</span><span class="hkpi-l">누적 광고주</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq-wrap">
+  <div class="mq-track">
+    <div class="mq-item"><span class="mq-dot"></span>팟캐스트 14년 1위</div>
+    <div class="mq-item"><span class="mq-dot"></span>유튜브 구독자 40만</div>
+    <div class="mq-item"><span class="mq-dot"></span>일평균 조회수 17.7만</div>
+    <div class="mq-item"><span class="mq-dot"></span>PPL 매출 1,000% 달성</div>
+    <div class="mq-item"><span class="mq-dot"></span>누적 광고주 110개+</div>
+    <div class="mq-item"><span class="mq-dot"></span>경제활동인구 81%</div>
+    <div class="mq-item"><span class="mq-dot"></span>채널 성장률 1,200%</div>
+    <div class="mq-item"><span class="mq-dot"></span>스포티파이 · 애플 · 팟빵 전 플랫폼 1위</div>
+    <div class="mq-item"><span class="mq-dot"></span>팟캐스트 14년 1위</div>
+    <div class="mq-item"><span class="mq-dot"></span>유튜브 구독자 40만</div>
+    <div class="mq-item"><span class="mq-dot"></span>일평균 조회수 17.7만</div>
+    <div class="mq-item"><span class="mq-dot"></span>PPL 매출 1,000% 달성</div>
+    <div class="mq-item"><span class="mq-dot"></span>누적 광고주 110개+</div>
+    <div class="mq-item"><span class="mq-dot"></span>경제활동인구 81%</div>
+    <div class="mq-item"><span class="mq-dot"></span>채널 성장률 1,200%</div>
+    <div class="mq-item"><span class="mq-dot"></span>스포티파이 · 애플 · 팟빵 전 플랫폼 1위</div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section id="why" class="sec rv">
+  <div class="sec-inner">
+    <div class="sec-tag">Why 손에잡히는경제</div>
+    <h2 class="sec-title">광고가 아닌<br>신뢰로 작동합니다.</h2>
+    <p class="sec-desc">이진우 MC가 14년간 쌓아온 경제 전문가로서의 신뢰가 브랜드로 자연스럽게 전이됩니다.</p>
+    <div class="why-grid">
+      <div class="wcard">
+        <div class="wicon">🎙️</div>
+        <span class="wbig">14년</span>
+        <div class="wtit">팟캐스트 부동의 1위</div>
+        <div class="wdesc">스포티파이 · 애플 팟캐스트 · 팟빵 전 플랫폼 1위. MC의 팬덤이 곧 광고 효과입니다.</div>
+      </div>
+      <div class="wcard">
+        <div class="wicon">👥</div>
+        <span class="wbig">81%</span>
+        <div class="wtit">경제활동인구 집중</div>
+        <div class="wdesc">3060대 구매력 있는 핵심 소비층. 실구매로 이어지는 타겟이 시청합니다.</div>
+      </div>
+      <div class="wcard">
+        <div class="wicon">📺</div>
+        <span class="wbig">17.7만</span>
+        <div class="wtit">일평균 조회수 (롱폼)</div>
+        <div class="wdesc">광고가 콘텐츠와 함께 깊게, 오래 소비됩니다. 30분 이상 함께하는 시청자들.</div>
+      </div>
+      <div class="wcard">
+        <div class="wicon">📈</div>
+        <span class="wbig">1,200%</span>
+        <div class="wtit">채널 누적 성장률</div>
+        <div class="wdesc">지금도 성장 중인 채널. 지금이 가장 낮은 단가, 가장 높은 효율의 타이밍.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="sec rv" style="background:var(--bg2)">
+  <div class="sec-inner">
+    <div class="sec-tag">Audience</div>
+    <h2 class="sec-title">구매 결정층이<br>몰린 채널.</h2>
+    <div class="aud-layout">
+      <div>
+        <div class="aud-chart">
+          <div class="ach-head">
+            <span>📊 연령별 시청자 구성</span>
+          </div>
+          <div class="ach-body">
+            <div class="abar-row">
+              <div class="abar-label">25–34세</div>
+              <div class="abar-track"><div class="abar-fill" data-w="6"></div></div>
+              <div class="abar-val">6%</div>
+            </div>
+            <div class="abar-row">
+              <div class="abar-label">35–44세</div>
+              <div class="abar-track"><div class="abar-fill" data-w="17"></div></div>
+              <div class="abar-val">17%</div>
+            </div>
+            <div class="abar-row">
+              <div class="abar-label">45–54세</div>
+              <div class="abar-track"><div class="abar-fill hi" data-w="34"></div></div>
+              <div class="abar-val" style="color:var(--mg);font-weight:900">34%</div>
+            </div>
+            <div class="abar-row">
+              <div class="abar-label">55–64세</div>
+              <div class="abar-track"><div class="abar-fill hi" data-w="27"></div></div>
+              <div class="abar-val" style="color:var(--mg);font-weight:900">27%</div>
+            </div>
+            <div class="abar-row">
+              <div class="abar-label">65세+</div>
+              <div class="abar-track"><div class="abar-fill" data-w="13"></div></div>
+              <div class="abar-val">13%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aud-cards">
+        <div class="acard">
+          <div class="acard-icon">💪</div>
+          <div><div class="acard-n">81%</div><div class="acard-l">경제활동인구 — 실구매력 보유층</div></div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">🧑‍💼</div>
+          <div><div class="acard-n">70% 남</div><div class="acard-l">남성 70% / 여성 30% — 금융·B2B·건강 최적</div></div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">⏱️</div>
+          <div><div class="acard-n">30분+</div><div class="acard-l">평균 시청 시간 — 깊은 몰입 속 브랜드 노출</div></div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">🌐</div>
+          <div><div class="acard-n">3개 플랫폼</div><div class="acard-l">유튜브 + 팟캐스트 + 라디오 동시 노출</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases" class="sec rv">
+  <div class="sec-inner">
+    <div class="sec-tag">Case Study</div>
+    <h2 class="sec-title">광고주가 직접<br>다시 찾는 채널.</h2>
+    <p class="sec-desc">단순 노출이 아닌, 실매출로 연결된 사례들입니다.</p>
+    <div class="cases-grid">
+      <div class="case-row">
+        <div class="cidx">01</div>
+        <div>
+          <div class="ccat">🍱 배달 서비스</div>
+          <div class="cname">현관앞키친</div>
+        </div>
+        <div class="cres-list">
+          <div class="cres-item">방송 직후 이틀 간 <b>매출 1,000만원</b></div>
+          <div class="cres-item">사이트 트래픽 <b>3배 급증</b></div>
+        </div>
+        <div class="cbadge">3×</div>
+      </div>
+      <div class="case-row">
+        <div class="cidx">02</div>
+        <div>
+          <div class="ccat">💄 화장품 · 재출연</div>
+          <div class="cname">온기 화장품</div>
+        </div>
+        <div class="cres-list">
+          <div class="cres-item">월 매출 300만원 → <b>1억 4천만원</b></div>
+          <div class="cres-item">재구매율 <b>30%</b>, 만족도 높아 재출연</div>
+        </div>
+        <div class="cbadge">47×</div>
+      </div>
+      <div class="case-row">
+        <div class="cidx">03</div>
+        <div>
+          <div class="ccat">🛏️ 매트리스 브랜드</div>
+          <div class="cname">삼분의 일</div>
+        </div>
+        <div class="cres-list">
+          <div class="cres-item">링크 하나만으로 <b>광고비 대비 1,000% 매출</b></div>
+          <div class="cres-item">방송 직후 <b>즉시 전환</b> 확인</div>
+        </div>
+        <div class="cbadge">10×</div>
+      </div>
+    </div>
+    <div style="margin-top:40px">
+      <div class="sec-tag" style="margin-bottom:16px">주요 광고주</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">Toss</span>
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">한국투자신탁운용</span>
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">SK브로드밴드</span>
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">GS리테일</span>
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">삼성자산운용</span>
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">마이프차</span>
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">삼분의일</span>
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">MINISH</span>
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">마인드치과</span>
+        <span style="font-size:12px;font-weight:500;color:var(--mid);background:var(--bg2);border:1.5px solid var(--line);padding:6px 14px;border-radius:100px">+ 100여 개 업체</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="sec pricing-bg rv">
+  <div class="sec-inner">
+    <div class="sec-tag">Pricing</div>
+    <h2 class="sec-title">투명한 단가표.</h2>
+    <div class="urgency">
+      <div class="urgency-dot"></div>
+      ⚠️ 2026년 1분기(3월)까지만 현행 단가 적용 — <strong style="color:#fff;margin-left:4px">4월부터 인상 확정</strong>
+    </div>
+    <div class="price-grid">
+      <div class="pcard featured">
+        <span class="picon">🎬</span>
+        <span class="ptag">BEST</span>
+        <div class="pname">이것은 협찬인가,<br>콘텐츠인가</div>
+        <div class="pdesc">광고주 직접 출연 브랜디드 콘텐츠 (1시간+). 커피타임 출연진과의 만남. 홍보와 정보가 어우러진 국내 최초 지식 콘텐츠.</div>
+        <div class="pprice">720<sub>만원</sub></div>
+      </div>
+      <div class="pcard">
+        <span class="picon">🎯</span>
+        <span class="ptag">POPULAR</span>
+        <div class="pname">제품 노출<br>+ 언급 + 시연</div>
+        <div class="pdesc">커피타임 내 제품 노출 · 직접 언급 · 시연까지. 가장 많이 선택하는 패키지.</div>
+        <div class="pprice">480<sub>만원</sub></div>
+      </div>
+      <div class="pcard">
+        <span class="picon">📢</span>
+        <span class="ptag">STANDARD</span>
+        <div class="pname">제품 노출<br>+ 언급</div>
+        <div class="pdesc">커피타임 내 제품 노출 및 MC 언급. 입문형 패키지.</div>
+        <div class="pprice">240<sub>만원</sub></div>
+      </div>
+      <div class="pcard">
+        <span class="picon">👁️</span>
+        <span class="ptag">LIGHT</span>
+        <div class="pname">제품<br>단순 노출</div>
+        <div class="pdesc">커피타임 내 제품 화면 노출. 브랜드 인지도 확보에 효과적.</div>
+        <div class="pprice">120<sub>만원</sub></div>
+      </div>
+      <div class="pcard">
+        <span class="picon">🪧</span>
+        <span class="ptag">ADD-ON</span>
+        <div class="pname">판넬 광고</div>
+        <div class="pdesc">진행석 판넬 or 브랜드 로고 CG. 본방 / 플러스 / 커피타임 택1.</div>
+        <div class="pprice">120<sub>만원</sub></div>
+      </div>
+    </div>
+    <p class="pnote">* 모든 단가 VAT 별도 &nbsp;·&nbsp; * 커피타임 브랜디드 단가는 2026년 1분기(3월)까지만 현행 적용</p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec rv">
+  <div class="sec-inner">
+    <div class="sec-tag">Process</div>
+    <h2 class="sec-title">문의부터 업로드까지<br>단 3~4주.</h2>
+    <div class="proc-grid">
+      <div class="pstep">
+        <span class="step-icon">📩</span>
+        <div class="step-day">D-21</div>
+        <div class="step-name">광고 문의</div>
+        <div class="step-desc">이메일로 브랜드 정보 전달</div>
+      </div>
+      <div class="pstep">
+        <span class="step-icon">🤝</span>
+        <div class="step-day">D-17</div>
+        <div class="step-name">제작진 미팅</div>
+        <div class="step-desc">유선 또는 대면 미팅</div>
+      </div>
+      <div class="pstep">
+        <span class="step-icon">📝</span>
+        <div class="step-day">D-14</div>
+        <div class="step-name">계약서 작성</div>
+        <div class="step-desc">진행 확정 및 계약</div>
+      </div>
+      <div class="pstep">
+        <span class="step-icon">🎬</span>
+        <div class="step-day">D-7</div>
+        <div class="step-name">촬영 (녹화)</div>
+        <div class="step-desc">대본 없이 자유롭게</div>
+      </div>
+      <div class="pstep">
+        <span class="step-icon">🚀</span>
+        <div class="step-day">D-DAY</div>
+        <div class="step-name">업로드</div>
+        <div class="step-desc">성과 확인 즉시 시작</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-bg-txt">TRUST.</div>
+  <div class="cta-inner">
+    <div class="cta-badge">⏰ 4월 단가 인상 전 마감 임박</div>
+    <h2 class="cta-title">지금 시작하면<br><span class="mg">4월 전에</span><br>집행됩니다.</h2>
+    <p class="cta-desc">문의 후 3~4주면 대한민국 대표 경제 채널에<br>브랜드가 자연스럽게 녹아듭니다.</p>
+    <div class="cta-btns">
+      <a href="mailto:content@macloud.co.kr?subject=손에잡히는경제 PPL 광고 문의&body=안녕하세요, PPL 광고 문의드립니다.%0A%0A회사명: %0A담당자명: %0A연락처: " class="btn-primary" style="font-size:15px;padding:16px 36px">📩 문의하기</a>
+      <a href="tel:07049180085" class="btn-sec" style="font-size:15px;padding:16px 36px;color:var(--mg);border-color:var(--mg)">📞 070-4918-0085</a>
+    </div>
+    <div class="cta-contact">
+      <div class="cc-item"><span class="cc-dot">📧</span><a href="mailto:content@macloud.co.kr">content@macloud.co.kr</a></div>
+      <div class="cc-item"><span class="cc-dot">🌐</span><a href="https://www.macloud.co.kr" target="_blank">www.macloud.co.kr</a></div>
+      <div class="cc-item"><span class="cc-dot">📍</span><span>서울 강남구 봉은사로 524, B201호</span></div>
+    </div>
+  </div>
+  <div class="cta-cr">© 2026 marketingCloud × MBC 손에잡히는경제. All rights reserved.</div>
+</section>
+
+<script>
+// 스크롤 reveal
+const ro = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); ro.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+
+// 바 차트 애니메이션
+const bo = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.abar-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+      bo.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.aud-chart').forEach(el => bo.observe(el));
+</script>
+</body>
+</html>
