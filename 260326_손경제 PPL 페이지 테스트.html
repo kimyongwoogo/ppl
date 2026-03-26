@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta property="og:title" content="MBC 손에잡히는경제 × PPL 광고 제안">
+<meta property="og:description" content="40만 구독자, 14년 신뢰. 광고가 아닌 신뢰로 작동하는 브랜드 PPL">
+<title>MBC 손에잡히는경제 × PPL</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #E8006F;
+  --dark: #1A1A1A;
+  --dark2: #2d0016;
+  --light: #F9F5F7;
+  --white: #ffffff;
+  --muted: #888;
+  --r: 14px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans KR', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(160deg, #1A1A1A 0%, #2d0016 100%);
+  padding: 48px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 80% 120%, rgba(232,0,111,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 2; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(232,0,111,0.15); border: 1px solid rgba(232,0,111,0.4);
+  border-radius: 100px; padding: 5px 14px;
+  font-size: 11px; font-weight: 700; color: #ff4da6; letter-spacing: 0.05em; margin-bottom: 20px;
+}
+.hero-top {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
+}
+.hero-title {
+  flex: 1; font-size: clamp(24px, 7vw, 38px); font-weight: 900;
+  color: #fff; line-height: 1.15; letter-spacing: -0.02em;
+}
+.hero-title em { font-style: normal; color: var(--pink); display: block; }
+.yt-box {
+  flex: 1; position: relative; border-radius: 10px; overflow: hidden;
+  aspect-ratio: 16/9; background: #000; flex-shrink: 0;
+  box-shadow: 0 6px 24px rgba(232,0,111,0.35), 0 2px 8px rgba(0,0,0,0.5);
+  border: 1px solid rgba(232,0,111,0.35);
+}
+.yt-box a { display: block; position: absolute; inset: 0; text-decoration: none; }
+.yt-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.yt-play {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.15); transition: background 0.2s;
+}
+.yt-box a:active .yt-play { background: rgba(0,0,0,0.35); }
+.yt-play svg { width: 44px; height: 31px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6)); }
+.yt-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px 8px; background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.9); letter-spacing: 0.06em; text-align: center;
+}
+.hero-sub { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 24px; }
+.hero-sub strong { color: rgba(255,255,255,0.9); }
+.hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+.stat-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px 12px; }
+.stat-card .num { font-size: 24px; font-weight: 900; color: var(--pink); display: block; line-height: 1; }
+.stat-card .lbl { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 4px; display: block; }
+.hero-cta { display: flex; flex-direction: column; gap: 10px; }
+.btn-main {
+  display: block; width: 100%; padding: 15px; background: var(--pink); color: #fff;
+  font-family: 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 700;
+  text-align: center; border-radius: 10px; text-decoration: none;
+  box-shadow: 0 4px 18px rgba(232,0,111,0.4); letter-spacing: -0.02em;
+}
+.btn-sub {
+  display: block; width: 100%; padding: 13px; background: transparent; color: rgba(255,255,255,0.75);
+  font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 500;
+  text-align: center; border-radius: 10px; text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2); letter-spacing: -0.02em;
+}
+
+/* SECTIONS */
+.sec { padding: 48px 20px; }
+.sec-dark { background: var(--dark); color: white; }
+.sec-white { background: var(--white); }
+.sec-light { background: var(--light); }
+.sec-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink); margin-bottom: 6px; }
+.sec-dark .sec-tag { color: #ff4da6; }
+.sec-h { font-size: clamp(20px, 5.5vw, 28px); font-weight: 900; line-height: 1.3; margin-bottom: 6px; letter-spacing: -0.03em; }
+.sec-dark .sec-h { color: #fff; }
+.sec-p { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+.sec-dark .sec-p { color: rgba(255,255,255,0.5); }
+
+/* WHY */
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.why-card { background: var(--light); border-radius: 12px; padding: 16px 14px; position: relative; overflow: hidden; }
+.why-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--dark), var(--pink)); border-radius: 0 0 12px 12px; }
+.wi { font-size: 24px; margin-bottom: 8px; display: block; }
+.wn { font-size: 20px; font-weight: 900; color: var(--dark); line-height: 1; display: block; margin-bottom: 2px; letter-spacing: -0.03em; }
+.wt { font-size: 10px; font-weight: 700; color: var(--pink); display: block; margin-bottom: 5px; }
+.wd { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+/* AUDIENCE */
+.aud-nums { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+.aud-num-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px 8px; text-align: center; }
+.an { font-size: 18px; font-weight: 900; color: var(--pink); display: block; line-height: 1; }
+.al { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 4px; display: block; line-height: 1.3; }
+.age-bars { display: flex; flex-direction: column; gap: 10px; }
+.age-row { display: flex; align-items: center; gap: 10px; }
+.age-lbl { font-size: 12px; color: rgba(255,255,255,0.55); width: 50px; flex-shrink: 0; }
+.age-track { flex: 1; background: rgba(255,255,255,0.1); border-radius: 100px; height: 8px; overflow: hidden; }
+.age-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, #E8006F, #ff4da6); width: 0; transition: width 1.2s cubic-bezier(0.25,0.46,0.45,0.94); }
+.age-pct { font-size: 12px; font-weight: 700; color: var(--pink); width: 28px; text-align: right; flex-shrink: 0; }
+
+/* CASES */
+.case-card { background: var(--white); border-radius: 14px; padding: 18px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+.case-card::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--dark), var(--pink)); }
+.case-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.case-brand { display: flex; align-items: center; gap: 8px; }
+.case-ico { font-size: 20px; }
+.case-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.case-cat { font-size: 11px; color: var(--muted); }
+.case-roi { background: linear-gradient(135deg, #1A1A1A, #2d0016); color: var(--pink); font-size: 18px; font-weight: 900; padding: 7px 11px; border-radius: 8px; line-height: 1; text-align: center; }
+.case-roi span { font-size: 9px; display: block; color: rgba(255,255,255,0.5); font-weight: 400; margin-top: 2px; }
+.case-rows { display: flex; flex-direction: column; gap: 6px; }
+.case-row { font-size: 12px; color: var(--dark); line-height: 1.4; display: flex; gap: 6px; }
+.case-row::before { content: '→'; color: var(--pink); font-weight: 700; flex-shrink: 0; }
+
+/* PRICING */
+.deadline { background: linear-gradient(135deg, #fff0f6, #fff5fb); border: 1px solid rgba(232,0,111,0.3); border-radius: 12px; padding: 14px 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.di { font-size: 20px; flex-shrink: 0; }
+.dt { font-size: 12px; color: #7a0038; line-height: 1.5; }
+.dt strong { font-weight: 700; }
+.price-card { border-radius: 14px; padding: 18px; margin-bottom: 10px; }
+.pc-best { background: linear-gradient(135deg, #1A1A1A, #2d0016); border: 1px solid rgba(232,0,111,0.3); }
+.pc-pop { background: var(--white); border: 2px solid var(--pink); }
+.pc-std, .pc-lgt, .pc-add { background: var(--white); border: 1px solid #e8dde4; }
+.price-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-bottom: 10px; letter-spacing: 0.08em; }
+.pc-best .price-badge { background: #fff; color: var(--pink); }
+.pc-pop .price-badge { background: var(--pink); color: #fff; }
+.pc-std .price-badge, .pc-lgt .price-badge, .pc-add .price-badge { background: #f0e6ec; color: var(--muted); }
+.price-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.pc-best .price-name { color: #fff; }
+.pc-pop .price-name, .pc-std .price-name, .pc-lgt .price-name, .pc-add .price-name { color: var(--dark); }
+.price-desc { font-size: 11px; margin-bottom: 12px; line-height: 1.5; }
+.pc-best .price-desc { color: rgba(255,255,255,0.55); }
+.pc-pop .price-desc, .pc-std .price-desc, .pc-lgt .price-desc, .pc-add .price-desc { color: var(--muted); }
+.price-amt { font-size: 28px; font-weight: 900; line-height: 1; }
+.pc-best .price-amt { color: var(--pink); }
+.pc-pop .price-amt, .pc-std .price-amt, .pc-lgt .price-amt, .pc-add .price-amt { color: var(--dark); }
+.price-amt small { font-size: 14px; font-weight: 500; opacity: 0.6; }
+.price-vat { font-size: 10px; opacity: 0.45; margin-top: 3px; }
+
+/* PROCESS */
+.timeline { padding-left: 26px; position: relative; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--dark), var(--pink)); border-radius: 2px; }
+.tl { position: relative; margin-bottom: 22px; }
+.tl::before { content: ''; position: absolute; left: -22px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--pink); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--pink); }
+.tl-day { font-size: 10px; font-weight: 700; color: var(--pink); letter-spacing: 0.08em; margin-bottom: 2px; }
+.tl-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.tl-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* CTA FINAL */
+.cta-wrap { background: linear-gradient(160deg, #1A1A1A 0%, #2d0016 100%); padding: 52px 20px 44px; text-align: center; position: relative; overflow: hidden; }
+.cta-wrap::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(232,0,111,0.22) 0%, transparent 70%); pointer-events: none; }
+.cta-wrap > * { position: relative; z-index: 1; }
+.cta-tag { display: inline-block; background: rgba(232,0,111,0.2); border: 1px solid rgba(232,0,111,0.4); color: #ff4da6; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; padding: 5px 14px; border-radius: 100px; margin-bottom: 16px; }
+.cta-wrap h2 { font-size: clamp(20px, 5.5vw, 30px); font-weight: 900; color: #fff; line-height: 1.3; margin-bottom: 8px; letter-spacing: -0.03em; }
+.cta-wrap h2 em { font-style: normal; color: var(--pink); }
+.cta-wrap p { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 28px; line-height: 1.7; }
+.contact-box { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px; margin-bottom: 18px; text-align: left; }
+.ct-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.ct-row:last-child { margin-bottom: 0; }
+.ct-ico { width: 34px; height: 34px; background: rgba(255,255,255,0.09); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.ct-sub { font-size: 10px; color: rgba(255,255,255,0.45); display: block; margin-bottom: 1px; }
+.ct-val { font-size: 13px; font-weight: 600; color: #fff; display: block; }
+.btn-cta { display: block; width: 100%; padding: 15px; background: var(--pink); color: #fff; font-family: 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 700; text-align: center; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 18px rgba(232,0,111,0.4); letter-spacing: -0.02em; }
+.footer-note { margin-top: 24px; font-size: 10px; color: rgba(255,255,255,0.25); line-height: 1.6; }
+
+/* FLOATING BAR */
+.float-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(20,0,10,0.96); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.07); display: flex; gap: 8px; transform: translateY(100%); transition: transform 0.3s ease; }
+.float-bar.on { transform: translateY(0); }
+.float-bar a { flex: 1; padding: 12px 0; border-radius: 9px; font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; letter-spacing: -0.02em; }
+.fb-main { background: var(--pink); color: #fff; }
+.fb-web { background: rgba(255,255,255,0.09); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.15); }
+
+/* REVEAL */
+.rv { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.rv.on { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">📡 MBC 손에잡히는경제 PPL</div>
+    <div class="hero-top">
+      <h1 class="hero-title">TRUST<br>BECOMES<em>SALES.</em></h1>
+      <div class="yt-box">
+        <a href="https://youtu.be/eh2sAb2dqZ4" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/eh2sAb2dqZ4/hqdefault.jpg" alt="채널 영상 보기">
+          <div class="yt-play">
+            <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+              <path d="M66.52 7.74C65.7 4.62 63.22 2.16 60.08 1.34 54.82 0 34 0 34 0S13.18 0 7.92 1.34C4.78 2.16 2.3 4.62 1.48 7.74 0 12.98 0 24 0 24s0 11.02 1.48 16.26c.82 3.12 3.3 5.58 6.44 6.4C13.18 48 34 48 34 48s20.82 0 26.08-1.34c3.14-.82 5.62-3.28 6.44-6.4C68 35.02 68 24 68 24s0-11.02-1.48-16.26z" fill="#E8006F"/>
+              <path d="M27 34l18-10-18-10v20z" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="yt-label">▶ 채널 영상 보기</div>
+        </a>
+      </div>
+    </div>
+    <p class="hero-sub">14년간 대한민국 경제를 이끌어 온 채널<br>광고가 아닌 <strong>신뢰</strong>로 작동하는 브랜드 PPL</p>
+    <div class="hero-stats">
+      <div class="stat-card"><span class="num">40만</span><span class="lbl">유튜브 구독자</span></div>
+      <div class="stat-card"><span class="num">17.7만</span><span class="lbl">일평균 조회수</span></div>
+      <div class="stat-card"><span class="num">1,000%</span><span class="lbl">PPL 매출 사례</span></div>
+      <div class="stat-card"><span class="num">110+</span><span class="lbl">누적 광고주</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:content@macloud.co.kr" class="btn-main">📩 지금 바로 문의하기</a>
+      <a href="#pricing" class="btn-sub">단가표 바로보기 ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="sec sec-white">
+  <p class="sec-tag rv">Why 손에잡히는경제</p>
+  <h2 class="sec-h rv">광고가 아닌<br>신뢰로 작동합니다.</h2>
+  <p class="sec-p rv">MC의 신뢰가 브랜드로 전이되는 채널</p>
+  <div class="why-grid">
+    <div class="why-card rv"><span class="wi">🎙️</span><span class="wn">14년</span><span class="wt">팟캐스트 1위</span><p class="wd">스포티파이·애플·팟빵 전 플랫폼 1위</p></div>
+    <div class="why-card rv"><span class="wi">👥</span><span class="wn">81%</span><span class="wt">경제활동인구</span><p class="wd">구매력 있는 3060 핵심 소비층</p></div>
+    <div class="why-card rv"><span class="wi">📺</span><span class="wn">17.7만</span><span class="wt">일평균 조회수</span><p class="wd">30분+ 롱폼으로 깊게 소비</p></div>
+    <div class="why-card rv"><span class="wi">📈</span><span class="wn">1,200%</span><span class="wt">채널 성장률</span><p class="wd">지금이 가장 낮은 단가, 최고의 타이밍</p></div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="sec sec-dark">
+  <p class="sec-tag rv">Audience</p>
+  <h2 class="sec-h rv">구매 결정층이<br>몰린 채널.</h2>
+  <p class="sec-p rv">금융·B2B·건강 타겟에 최적화된 시청자 구성</p>
+  <div class="aud-nums rv">
+    <div class="aud-num-card"><span class="an">81%</span><span class="al">경제활동<br>인구</span></div>
+    <div class="aud-num-card"><span class="an">30분+</span><span class="al">평균<br>시청시간</span></div>
+    <div class="aud-num-card"><span class="an">남 70%</span><span class="al">성별<br>구성</span></div>
+  </div>
+  <div class="age-bars rv" id="ageBars">
+    <div class="age-row"><span class="age-lbl">25–34세</span><div class="age-track"><div class="age-fill" data-w="6"></div></div><span class="age-pct">6%</span></div>
+    <div class="age-row"><span class="age-lbl">35–44세</span><div class="age-track"><div class="age-fill" data-w="17"></div></div><span class="age-pct">17%</span></div>
+    <div class="age-row"><span class="age-lbl">45–54세</span><div class="age-track"><div class="age-fill" data-w="34"></div></div><span class="age-pct">34%</span></div>
+    <div class="age-row"><span class="age-lbl">55–64세</span><div class="age-track"><div class="age-fill" data-w="27"></div></div><span class="age-pct">27%</span></div>
+    <div class="age-row"><span class="age-lbl">65세+</span><div class="age-track"><div class="age-fill" data-w="13"></div></div><span class="age-pct">13%</span></div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="sec sec-light">
+  <p class="sec-tag rv">Case Study</p>
+  <h2 class="sec-h rv">광고주가 직접<br>다시 찾는 채널.</h2>
+  <p class="sec-p rv">실제 집행 브랜드의 성과</p>
+  <div class="case-card rv">
+    <div class="case-head">
+      <div class="case-brand"><span class="case-ico">🍱</span><div><div class="case-name">현관앞키친</div><div class="case-cat">배달 서비스</div></div></div>
+      <div class="case-roi">3×<span>트래픽</span></div>
+    </div>
+    <div class="case-rows">
+      <div class="case-row">방송 직후 이틀 간 매출 <strong>1,000만원</strong> 달성</div>
+      <div class="case-row">사이트 트래픽 <strong>3배 급증</strong></div>
+    </div>
+  </div>
+  <div class="case-card rv">
+    <div class="case-head">
+      <div class="case-brand"><span class="case-ico">💄</span><div><div class="case-name">온기 화장품</div><div class="case-cat">화장품 · 재출연</div></div></div>
+      <div class="case-roi">47×<span>매출</span></div>
+    </div>
+    <div class="case-rows">
+      <div class="case-row">월매출 <strong>300만원 → 1억 4천만원</strong></div>
+      <div class="case-row">재구매율 30% 달성, 재출연 진행</div>
+    </div>
+  </div>
+  <div class="case-card rv">
+    <div class="case-head">
+      <div class="case-brand"><span class="case-ico">🛏️</span><div><div class="case-name">삼분의 일</div><div class="case-cat">매트리스</div></div></div>
+      <div class="case-roi">10×<span>ROI</span></div>
+    </div>
+    <div class="case-rows">
+      <div class="case-row">링크 하나로 광고비 대비 <strong>1,000% 매출</strong></div>
+      <div class="case-row">방송 직후 즉시 전환 확인</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec sec-white" id="pricing">
+  <p class="sec-tag rv">Pricing</p>
+  <h2 class="sec-h rv">투명한 단가표.</h2>
+  <div class="deadline rv"><span class="di">⚠️</span><div class="dt"><strong>2026년 4월까지 현행 할인 단가 적용</strong><br>지금 문의 시 4월에 집행 가능합니다.</div></div>
+  <div class="price-card pc-best rv"><span class="price-badge">BEST</span><div class="price-name">🎬 커피타임 브랜디드</div><div class="price-desc">광고주 출연 콘텐츠 1시간+ · 노출+언급+시연</div><div class="price-amt">600<small>만원</small></div><div class="price-vat">* VAT 별도</div></div>
+  <div class="price-card pc-pop rv"><span class="price-badge">POPULAR</span><div class="price-name">🎯 노출+언급+시연</div><div class="price-desc">제품 노출·언급·시연 패키지</div><div class="price-amt">480<small>만원</small></div><div class="price-vat">* VAT 별도</div></div>
+  <div class="price-card pc-std rv"><span class="price-badge">STANDARD</span><div class="price-name">📢 노출+언급</div><div class="price-desc">커피타임 내 노출 및 MC 언급</div><div class="price-amt">240<small>만원</small></div><div class="price-vat">* VAT 별도</div></div>
+  <div class="price-card pc-lgt rv"><span class="price-badge">LIGHT</span><div class="price-name">👁️ 단순 노출</div><div class="price-desc">커피타임 내 화면 노출</div><div class="price-amt">120<small>만원</small></div><div class="price-vat">* VAT 별도</div></div>
+  <div class="price-card pc-add rv"><span class="price-badge">ADD-ON</span><div class="price-name">🪧 판넬 광고</div><div class="price-desc">진행석 판넬 또는 CG 로고</div><div class="price-amt">120<small>만원</small></div><div class="price-vat">* VAT 별도</div></div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec sec-light">
+  <p class="sec-tag rv">Process</p>
+  <h2 class="sec-h rv">문의부터 업로드까지<br>단 3~4주.</h2>
+  <p class="sec-p rv">빠르고 간단한 집행 프로세스</p>
+  <div class="timeline">
+    <div class="tl rv"><div class="tl-day">D-21</div><div class="tl-title">📩 광고 문의</div><div class="tl-desc">이메일로 브랜드 정보 전달</div></div>
+    <div class="tl rv"><div class="tl-day">D-17</div><div class="tl-title">🤝 제작진 미팅</div><div class="tl-desc">유선 또는 대면 미팅</div></div>
+    <div class="tl rv"><div class="tl-day">D-14</div><div class="tl-title">📝 계약서 작성</div><div class="tl-desc">진행 확정 및 계약</div></div>
+    <div class="tl rv"><div class="tl-day">D-7</div><div class="tl-title">🎬 촬영(녹화)</div><div class="tl-desc">대본 없이 자유롭게</div></div>
+    <div class="tl rv"><div class="tl-day">D-DAY</div><div class="tl-title">🚀 업로드</div><div class="tl-desc">성과 확인 즉시 시작</div></div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-wrap">
+  <span class="cta-tag">⏰ 4월 할인 단가 마감 임박</span>
+  <h2>지금 시작하면<br><em>4월에 집행</em>됩니다.</h2>
+  <p>문의 후 3~4주면 대한민국 대표 경제 채널에<br>브랜드가 자연스럽게 녹아듭니다.</p>
+  <div class="contact-box">
+    <div class="ct-row"><div class="ct-ico">📩</div><div><span class="ct-sub">이메일</span><span class="ct-val">content@macloud.co.kr</span></div></div>
+    <div class="ct-row"><div class="ct-ico">🌐</div><div><span class="ct-sub">홈페이지</span><span class="ct-val">www.macloud.co.kr</span></div></div>
+  </div>
+  <a href="mailto:content@macloud.co.kr" class="btn-cta">📩 지금 바로 문의하기</a>
+  <div class="footer-note">© 2026 marketingCloud × MBC 손에잡히는경제. All rights reserved.</div>
+</section>
+
+<!-- FLOATING BAR -->
+<div class="float-bar" id="floatBar">
+  <a href="mailto:content@macloud.co.kr" class="fb-main">📩 이메일 문의</a>
+  <a href="https://www.macloud.co.kr" target="_blank" class="fb-web">🌐 홈페이지</a>
+</div>
+
+<script>
+// Reveal
+const rvObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+
+// Age bars
+let barsAnimated = false;
+const barObs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting && !barsAnimated) {
+    barsAnimated = true;
+    document.querySelectorAll('.age-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+  }
+}, { threshold: 0.3 });
+const ageBars = document.getElementById('ageBars');
+if (ageBars) barObs.observe(ageBars);
+
+// Float bar
+const hero = document.querySelector('.hero');
+const bar = document.getElementById('floatBar');
+window.addEventListener('scroll', () => {
+  bar.classList.toggle('on', hero.getBoundingClientRect().bottom < 0);
+}, { passive: true });
+</script>
+</body>
+</html>
