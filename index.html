@@ -204,6 +204,8 @@
 #skj .video-card.featured{ border-color:rgba(232,32,58,.45); }
 #skj .video-frame{ position:relative; aspect-ratio:16/9; background:#06070a; overflow:hidden; }
 #skj .video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+#skj .video-frame video{ position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:contain; background:#06070a; }
+#skj .video-card.featured .video-frame::after{ content:"AUTO PLAY · FILE"; position:absolute; left:14px; top:14px; z-index:2; display:inline-flex; align-items:center; border-radius:999px; padding:6px 10px; background:rgba(232,32,58,.92); color:#fff; font-family:"Space Grotesk",sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.08em; pointer-events:none; }
 #skj .video-body{ padding:16px 18px 18px; }
 #skj .video-tag{ display:inline-flex; align-items:center; gap:6px; color:var(--accent); font-family:"Space Grotesk",sans-serif; font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
 #skj .video-title{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:17px; margin-top:5px; word-break:keep-all; }
@@ -253,6 +255,243 @@
 #skj .price-note{ padding:0 26px 20px; margin-top:0; text-align:left; color:#7f858f; }
 @media(max-width:720px){ #skj .pricing-top{ flex-direction:column; align-items:flex-start; } #skj .pricing-badge{ text-align:left; } #skj .price th, #skj .price td{ padding:15px 14px; } #skj .price .won{ font-size:17px; } }
 
+
+/* === 0625 visual refinements: host / graph / advertisers / pricing === */
+#skj .host{
+  border-radius:20px;
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(18,19,23,.98));
+  box-shadow:0 20px 54px rgba(0,0,0,.26);
+}
+#skj .host img{
+  height:360px;
+  object-fit:cover;
+  object-position:center center;
+  filter:contrast(1.05) saturate(1.04);
+}
+#skj .host .body{
+  padding:22px 24px 26px;
+  background:linear-gradient(180deg, rgba(18,19,23,.94), #111217);
+}
+#skj .host .name{ font-size:24px; letter-spacing:-.02em; }
+#skj .host li{ font-size:14.5px; line-height:1.7; }
+
+#skj .audience-impact{
+  position:relative;
+  max-width:980px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:30px 30px 26px;
+  background:
+    radial-gradient(70% 95% at 52% 0%, rgba(95,208,191,.14), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(18,19,23,.98));
+  box-shadow:0 22px 70px rgba(0,0,0,.28);
+}
+#skj .chart-kpi{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:18px;
+  padding:16px 18px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;
+  background:rgba(10,11,13,.46);
+}
+#skj .chart-kpi .copy{ color:#cfd3da; font-size:14px; word-break:keep-all; }
+#skj .chart-kpi .copy b{ color:#fff; }
+#skj .chart-kpi .num{
+  flex:none;
+  font-family:"Space Grotesk",sans-serif;
+  font-weight:700;
+  font-size:clamp(34px,5vw,54px);
+  line-height:.95;
+  color:#fff;
+  text-shadow:0 0 26px rgba(95,208,191,.34);
+}
+#skj .chart-kpi .num span{ color:var(--teal); }
+#skj .chart{
+  height:238px;
+  justify-content:center;
+  gap:36px;
+}
+#skj .chart .group{ gap:9px; height:100%; }
+#skj .chart .group.age{
+  padding-right:34px;
+  border-right:1px dashed rgba(255,255,255,.16);
+}
+#skj .chart .group.gender{
+  margin-left:0;
+  padding-left:0;
+  border-left:0;
+  gap:14px;
+}
+#skj .bar{ width:50px; }
+#skj .bar .fill{
+  border-radius:10px 10px 2px 2px;
+  box-shadow:0 12px 26px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.20);
+}
+#skj .bar.core .fill{ background:linear-gradient(180deg, #73e2d3, var(--teal)); }
+#skj .bar.g .fill{ background:linear-gradient(180deg, #ffd86e, var(--yellow)); }
+#skj .bar .v{ top:-25px; font-size:14px; text-shadow:0 2px 8px rgba(0,0,0,.55); }
+#skj .bar .x{ font-size:11.5px; }
+#skj .chart-note{
+  text-align:center;
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+
+#skj .client-picto-wrap{
+  margin-top:26px;
+  padding:26px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:24px;
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(18,19,23,.94));
+  box-shadow:0 20px 64px rgba(0,0,0,.22);
+}
+#skj .client-picto-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+#skj .client-picto{
+  min-height:196px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:20px;
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:14px;
+}
+#skj .client-picto-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+#skj .client-picto .ico{
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:rgba(232,32,58,.12);
+  color:#fff;
+  border:1px solid rgba(232,32,58,.28);
+  font-family:"Space Grotesk",sans-serif;
+  font-weight:800;
+  font-size:17px;
+  letter-spacing:-.03em;
+}
+#skj .client-picto h3{
+  font-family:"Nanum Gothic",sans-serif;
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+#skj .logo-wall{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  margin-top:auto;
+}
+#skj .logo-wall img{
+  width:100%;
+  height:50px;
+  object-fit:contain;
+  padding:5px 7px;
+  border-radius:13px;
+  background:#fff;
+  box-shadow:0 10px 22px rgba(0,0,0,.20);
+}
+#skj .logo-wall.compact img{ height:42px; }
+#skj .logo-wall.wide{ grid-template-columns:1fr; }
+#skj .client-picto.featured{
+  background:linear-gradient(180deg, rgba(232,32,58,.10), rgba(255,255,255,.026));
+  border-color:rgba(232,32,58,.24);
+}
+#skj .client-picto-wrap .client-note{
+  margin-top:16px;
+  color:#8a909a;
+  font-size:12.5px;
+  text-align:center;
+}
+
+#skj .pricing-top{
+  align-items:center;
+  text-align:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:14px;
+}
+#skj .pricing-top h3{ font-size:26px; }
+#skj .pricing-top p{ max-width:720px; margin-left:auto; margin-right:auto; }
+#skj .pricing-badge{
+  text-align:center;
+  min-width:260px;
+  padding:16px 24px 18px;
+  border-radius:22px;
+  border:1px solid rgba(232,32,58,.35);
+  background:rgba(232,32,58,.10);
+  box-shadow:0 16px 42px rgba(232,32,58,.10);
+}
+#skj .pricing-badge span{ font-size:12.5px; }
+#skj .pricing-badge b{
+  margin-top:8px;
+  font-size:clamp(38px,5.2vw,56px);
+  line-height:1;
+  letter-spacing:-.03em;
+}
+#skj .price th:last-child,
+#skj .price td.won{ text-align:center !important; }
+#skj .price .won{
+  font-size:26px;
+  letter-spacing:-.03em;
+  vertical-align:middle;
+}
+#skj .price tr.top .won{
+  color:#fff;
+  font-size:31px;
+  text-shadow:0 0 20px rgba(232,32,58,.35);
+}
+@media(max-width:900px){
+  #skj .client-picto-grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:560px){
+  #skj .host img{ height:300px; }
+  #skj .chart-kpi{ flex-direction:column; text-align:center; }
+  #skj .chart{ gap:18px; height:220px; }
+  #skj .chart .group.age{ padding-right:18px; }
+  #skj .bar{ width:34px; }
+  #skj .client-picto-grid{ grid-template-columns:1fr; }
+  #skj .pricing-badge{ min-width:0; width:100%; }
+}
+
+/* === 0625 price/email update === */
+#skj .price th:last-child,
+#skj .price td.won{
+  width:180px;
+  min-width:180px;
+  text-align:center !important;
+  vertical-align:middle !important;
+}
+#skj .price td.won{
+  display:table-cell !important;
+  padding-left:18px !important;
+  padding-right:18px !important;
+}
+#skj .price tr.top td.won{
+  display:table-cell !important;
+  text-align:center !important;
+  background:rgba(232,32,58,.085);
+}
+@media(max-width:720px){
+  #skj .price th:last-child, #skj .price td.won{ width:116px; min-width:116px; }
+}
+
 </style>
 </head>
 <body>
@@ -282,20 +521,23 @@
         <div class="video-head">
           <div>
             <span class="play-kicker">Play First</span>
-            <h2>제안서 최상단에서<br>바로 재생되는 유튜브 레퍼런스</h2>
+            <h2>제안서 최상단에서<br>자동 재생되는 PPL 레퍼런스</h2>
           </div>
-          <p>광고주가 제안서를 열자마자 커피타임의 톤앤매너와 실제 콘텐츠 흐름을 확인할 수 있도록, 핵심 영상 2개와 전체 재생목록을 가장 먼저 배치했습니다.</p>
+          <p>광고주가 제안서를 열자마자 업로드된 PPL 레퍼런스 영상이 자동 재생되고, 이어서 핵심 유튜브 영상과 전체 재생목록을 확인할 수 있도록 배치했습니다.</p>
         </div>
         <div class="video-grid">
           <article class="video-card featured">
             <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/eh2sAb2dqZ4" title="손에잡히는경제 커피타임 대표 영상" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <video autoplay muted loop playsinline controls preload="auto" title="손에잡히는경제 PPL 영상 레퍼런스">
+                <source src="assets/video/sonkyungje_ppl_reference.mp4" type="video/mp4">
+                브라우저가 HTML5 동영상 재생을 지원하지 않습니다.
+              </video>
             </div>
             <div class="video-body">
-              <span class="video-tag">Featured Video</span>
-              <div class="video-title">커피타임 실제 진행 톤 확인</div>
-              <p class="video-desc">광고주 출연형 콘텐츠의 자연스러운 대화 구조와 브랜드 노출 방식을 바로 확인할 수 있는 대표 영상입니다.</p>
-              <a class="video-link" href="https://youtu.be/eh2sAb2dqZ4" target="_blank" rel="noopener">YouTube에서 재생</a>
+              <span class="video-tag">Auto Play Reference</span>
+              <div class="video-title">PPL 영상 파일 자동 재생</div>
+              <p class="video-desc">제안서를 열면 업로드된 레퍼런스 영상이 음소거 상태로 자동 재생되어 실제 노출 톤과 구성을 즉시 확인할 수 있습니다.</p>
+              <a class="video-link" href="assets/video/sonkyungje_ppl_reference.mp4" target="_blank" rel="noopener">영상 파일 크게 보기</a>
             </div>
           </article>
           <article class="video-card">
@@ -392,7 +634,8 @@
       <span class="eyebrow"><span class="dot"></span> Why #2</span>
       <h2 class="sec-head">구매 의사결정층이 몰린 채널</h2>
       <p class="sec-sub">손경제의 광고는 <span class="hl">설득이 아닌 ‘신뢰’</span>로 작동합니다.</p>
-      <div class="chartwrap" style="margin-top:26px">
+      <div class="chartwrap audience-impact" style="margin-top:26px">
+        <div class="chart-kpi"><div class="copy"><b>35–64세 핵심 구매층이 압도적으로 집중</b><br>경제 콘텐츠에 반응하는 고관여 시청자가 실제 소비 결정층으로 연결됩니다.</div><div class="num">81<span>%</span></div></div>
         <div class="chart">
           <div class="group age">
             <div class="bar"><div class="fill" style="height:8.6%"><span class="v">6%</span></div><span class="x">25–34</span></div>
@@ -511,7 +754,43 @@
       <span class="eyebrow"><span class="dot"></span> Advertisers</span>
       <h2 class="sec-head">카테고리 제한 없이 진행한 110여 건</h2>
       <p class="sec-sub">금융/투자 · 자동차 · B2B 솔루션 · 프리미엄 가전/IT 등 기업·개인·상품 제한 없이 커피타임 브랜디드 진행 <span style="color:#666b75">(2025.12 기준)</span></p>
-      <img class="shot" src="assets/img/clients.png" alt="진행 업체 로고" style="margin-top:24px;padding:8px;background:transparent;border-color:transparent">
+      <div class="client-picto-wrap" aria-label="진행 업체 카테고리와 브랜드 로고">
+        <div class="client-picto-grid">
+          <div class="client-picto featured">
+            <div class="client-picto-head"><div class="ico">₩</div><h3>금융/투자</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/toss.png" alt="toss"><img src="assets/img/logo_tiles/koreainvest.png" alt="한국투자신탁운용"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">DEL</div><h3>배달 서비스</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/gsretail.png" alt="GS리테일"><img src="assets/img/logo_tiles/frontkitchen.png" alt="현관앞키친"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">B2B</div><h3>B2B 솔루션</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/skbroadband.png" alt="SK broadband"><img src="assets/img/logo_tiles/teamdata21.png" alt="TeamData21"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">COM</div><h3>커머스</h3></div>
+            <div class="logo-wall compact"><img src="assets/img/logo_tiles/alo.png" alt="ALO"><img src="assets/img/logo_tiles/commerce_icon.png" alt="커머스 브랜드"><img src="assets/img/logo_tiles/breezm.png" alt="breezm"><img src="assets/img/logo_tiles/sambun.png" alt="삼분의일"><img src="assets/img/logo_tiles/publisher.png" alt="THE PUBLISHER"><img src="assets/img/logo_tiles/leesol.png" alt="LEESOL"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">＋</div><h3>의료</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/minddental.png" alt="마인드치과"><img src="assets/img/logo_tiles/minish.png" alt="MINISH"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">店</div><h3>프랜차이즈</h3></div>
+            <div class="logo-wall compact"><img src="assets/img/logo_tiles/myfranchise.png" alt="마이프차"><img src="assets/img/logo_tiles/brand_round.png" alt="프랜차이즈 브랜드"><img src="assets/img/logo_tiles/yeoljeong.png" alt="열정국밥"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">EDU</div><h3>교육/기관</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/niied.png" alt="교육부 국립국제교육원"><img src="assets/img/logo_tiles/hri.png" alt="현대경제연구원"></div>
+          </div>
+          <div class="client-picto featured">
+            <div class="client-picto-head"><div class="ico">110+</div><h3>누적 진행</h3></div>
+            <div class="logo-wall wide"><img src="assets/img/logo_tiles/toss.png" alt="카테고리 제한 없는 브랜드 진행"><img src="assets/img/logo_tiles/skbroadband.png" alt="브랜드 맞춤 구성"></div>
+          </div>
+        </div>
+        <p class="client-note">브랜드 로고는 살리고, 기존 파란 배경만 걷어낸 로고 타일형 구성으로 정돈했습니다.</p>
+      </div>
     </section>
 
     <!-- 단가표 -->
@@ -554,14 +833,14 @@
         <div class="cbox">
           <h4>PPL 문의</h4>
           <p class="note">본 제안서는 marketing CLOUD와 손에잡히는경제 유튜브 채널의 협업 하에 2026년 1월 배포된 버전입니다. 진행·집행 전 확인을 위해 아래로 문의해 주세요.</p>
-          <div class="row" style="margin-top:14px"><b>이메일</b><a href="mailto:[email protected]">[email protected]</a></div>
+          <div class="row" style="margin-top:14px"><b>이메일</b><a href="mailto:content@macloud.co.kr">content@macloud.co.kr</a></div>
           <div class="row"><b>전화</b><span>070-4918-0085</span></div>
         </div>
         <div class="cbox">
           <h4>marketing CLOUD</h4>
           <div class="row"><b>주소</b><span>서울특별시 강남구 봉은사로 524, 2층 201호<br><span style="color:var(--muted)">(삼성동, 스파크플러스 코엑스점)</span></span></div>
           <div class="row"><b>웹</b><a href="https://www.macloud.co.kr">www.macloud.co.kr</a></div>
-          <div class="row"><b>메일</b><a href="mailto:[email protected]">[email protected]</a></div>
+          <div class="row"><b>메일</b><a href="mailto:content@macloud.co.kr">content@macloud.co.kr</a></div>
         </div>
       </div>
     </section>
