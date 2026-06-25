@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>손에잡히는경제 유튜브 PPL 제안 — marketing CLOUD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&family=Nanum+Gothic:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     손에잡히는경제 × marketing CLOUD  |  유튜브 PPL 제안
+     드롭인 섹션. 모든 스타일은 #skj 안에서만 동작 → 워드프레스
+     'Custom HTML' 블록 / 페이지에 그대로 붙여넣어도 테마와 충돌 없음.
+     ▶ 미디어 경로: assets/img/...  (폴더째 업로드하거나 경로만 교체)
+     ============================================================ -->
+
+<style>
+#skj, #skj *{ margin:0; padding:0; box-sizing:border-box; }
+#skj{
+  --bg:#0a0b0d; --surface:#121317; --surface2:#16181d; --line:#23252b;
+  --text:#f2f3f5; --muted:#8b909a; --accent:#e8203a; --blue:#3d7bfd;
+  --teal:#5fd0bf; --yellow:#f4c64e;
+  --radius:16px;
+  font-family:"Noto Sans KR",system-ui,sans-serif; background:var(--bg);
+  color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased;
+  position:relative; overflow:hidden;
+}
+#skj::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(60% 45% at 80% 0%, rgba(61,123,253,.12), transparent 60%),
+    radial-gradient(50% 40% at 8% 6%, rgba(232,32,58,.10), transparent 60%);
+}
+#skj .wrap{ max-width:1240px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
+#skj section{ padding:64px 0; border-top:1px solid var(--line); }
+#skj section:first-of-type{ border-top:0; }
+#skj .eyebrow{
+  display:inline-flex; align-items:center; gap:9px; font-family:"Space Grotesk",sans-serif;
+  font-weight:600; font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
+}
+#skj .eyebrow .dot{ width:8px; height:8px; background:var(--accent); border-radius:2px; box-shadow:0 0 12px var(--accent); }
+#skj .sec-head{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:clamp(24px,3.4vw,36px); letter-spacing:-.01em; margin:14px 0 8px; word-break:keep-all; }
+#skj .sec-sub{ color:var(--muted); font-size:15px; word-break:keep-all; }
+#skj .hl{ color:#fff; background:var(--accent); padding:1px 7px; border-radius:5px; }
+#skj .hl-b{ color:var(--blue); font-weight:700; }
+#skj .hl-y{ color:var(--yellow); font-weight:700; }
+
+/* hero */
+#skj .hero{ padding:92px 0 56px; border-top:0; text-align:center; }
+#skj .hero .logo{ height:64px; width:auto; margin:22px auto 18px; display:block; }
+#skj .hero h1{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:clamp(34px,6vw,68px); line-height:1.04; letter-spacing:-.02em; }
+#skj .hero .lead{ font-family:"Nanum Gothic",sans-serif; font-weight:700; color:#cfd3da; font-size:clamp(16px,2.2vw,21px); margin-top:16px; word-break:keep-all; }
+#skj .hero .lead b{ color:#fff; border-bottom:2px solid var(--accent); }
+#skj .hero .badges{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+#skj .hero .badge{ font-size:13px; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:7px 15px; background:rgba(255,255,255,.02); }
+#skj .hero .badge b{ color:#fff; }
+
+/* stat strip */
+#skj .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:40px; }
+#skj .stat{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 18px; text-align:left; }
+#skj .stat .n{ font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:clamp(26px,3.4vw,38px); line-height:1; }
+#skj .stat .n .u{ font-size:.55em; color:var(--muted); margin-left:3px; }
+#skj .stat .n .c{ color:var(--accent); }
+#skj .stat .l{ font-size:12.5px; color:var(--muted); margin-top:9px; letter-spacing:.02em; }
+@media(max-width:720px){ #skj .stats{ grid-template-columns:repeat(2,1fr); } }
+
+/* generic grids */
+#skj .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:center; }
+#skj .grid4{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+#skj .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+@media(max-width:860px){ #skj .grid2,#skj .grid3{ grid-template-columns:1fr; } }
+@media(max-width:560px){ #skj .grid4{ grid-template-columns:1fr; } }
+
+#skj .shot{ width:100%; border-radius:14px; border:1px solid var(--line); display:block; background:var(--surface2); }
+
+/* overview point cards */
+#skj .pcard{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px; }
+#skj .pcard .k{ display:inline-block; font-family:"Nanum Gothic",sans-serif; font-weight:800; color:#fff; border-bottom:2px solid var(--accent); padding-bottom:2px; margin-bottom:8px; font-size:17px; }
+#skj .pcard p{ color:var(--muted); font-size:14.5px; word-break:keep-all; }
+#skj .pcard .big{ color:var(--accent); font-family:"Space Grotesk",sans-serif; font-weight:700; }
+
+/* host cards */
+#skj .host{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; }
+#skj .host img{ width:100%; height:340px; object-fit:cover; object-position:top center; background:#1c1f25; }
+#skj .host .body{ padding:20px 22px 24px; }
+#skj .host .name{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:22px; }
+#skj .host .name span{ color:var(--blue); font-size:14px; font-weight:700; margin-left:8px; }
+#skj .host ul{ list-style:none; margin-top:10px; }
+#skj .host li{ color:var(--muted); font-size:14px; padding-left:14px; position:relative; margin:5px 0; word-break:keep-all; }
+#skj .host li::before{ content:""; position:absolute; left:0; top:10px; width:5px; height:5px; border-radius:50%; background:var(--accent); }
+
+/* chart */
+#skj .chartwrap{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:30px 26px 22px; }
+#skj .chart{ display:flex; align-items:flex-end; gap:30px; height:260px; }
+#skj .chart .group{ display:flex; align-items:flex-end; gap:12px; height:100%; }
+#skj .chart .group.gender{ margin-left:auto; padding-left:30px; border-left:1px dashed var(--line); }
+#skj .bar{ width:46px; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; }
+#skj .bar .fill{ width:100%; border-radius:6px 6px 0 0; background:#2c2f37; position:relative; }
+#skj .bar.core .fill{ background:var(--teal); }
+#skj .bar.g .fill{ background:var(--yellow); }
+#skj .bar .v{ position:absolute; top:-22px; left:0; right:0; text-align:center; font-family:"JetBrains Mono",monospace; font-weight:700; font-size:13px; color:#fff; }
+#skj .bar .x{ margin-top:8px; font-size:11px; color:var(--muted); white-space:nowrap; }
+#skj .bar.core .x{ color:#cfd3da; }
+#skj .chart-note{ color:var(--muted); font-size:13px; margin-top:18px; word-break:keep-all; }
+@media(max-width:560px){ #skj .chart{ gap:14px; } #skj .bar{ width:30px; } #skj .chart .group{ gap:6px; } #skj .chart .group.gender{ padding-left:14px; } }
+
+/* points 3 */
+#skj .point{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px; text-align:center; }
+#skj .point .step{ font-family:"Space Grotesk",sans-serif; color:var(--accent); font-weight:600; font-size:14px; letter-spacing:.05em; }
+#skj .point .h{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:24px; margin:6px 0 4px; }
+#skj .point .s{ color:var(--muted); font-size:13px; }
+#skj .point img{ width:100%; border-radius:10px; margin:16px 0; border:1px solid var(--line); }
+#skj .point .d{ color:#cfd3da; font-size:14px; word-break:keep-all; }
+
+/* case cards */
+#skj .case{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+#skj .case img{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:#1c1f25; }
+#skj .case .body{ padding:18px 20px 22px; }
+#skj .case .t{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:16px; }
+#skj .case .t b{ color:var(--blue); }
+#skj .case ul{ list-style:none; margin-top:10px; }
+#skj .case li{ font-size:14px; color:var(--muted); padding-left:14px; position:relative; margin:4px 0; }
+#skj .case li::before{ content:"–"; position:absolute; left:0; color:var(--accent); }
+#skj .case li b{ color:#fff; }
+
+/* faq */
+#skj .faq{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media(max-width:720px){ #skj .faq{ grid-template-columns:1fr; } }
+#skj details{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:4px 20px; }
+#skj details[open]{ border-color:#34373f; }
+#skj summary{ list-style:none; cursor:pointer; padding:16px 0; font-family:"Nanum Gothic",sans-serif; font-weight:700; font-size:15.5px; display:flex; align-items:flex-start; gap:9px; word-break:keep-all; }
+#skj summary::-webkit-details-marker{ display:none; }
+#skj summary .q{ color:var(--blue); font-weight:800; flex:none; }
+#skj summary::after{ content:"+"; margin-left:auto; color:var(--muted); font-size:20px; line-height:1; flex:none; }
+#skj details[open] summary::after{ content:"–"; }
+#skj details .a{ color:var(--muted); font-size:14.5px; padding:0 0 18px 22px; word-break:keep-all; }
+
+/* process timeline */
+#skj .proc{ display:flex; align-items:stretch; gap:0; flex-wrap:wrap; }
+#skj .proc .step{ flex:1 1 0; min-width:120px; text-align:center; position:relative; padding:0 6px; }
+#skj .proc .node{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px 10px; height:100%; }
+#skj .proc .d{ font-family:"JetBrains Mono",monospace; color:var(--blue); font-weight:700; font-size:13px; }
+#skj .proc .lab{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:15px; margin-top:8px; word-break:keep-all; }
+#skj .proc .sub{ color:var(--muted); font-size:11.5px; margin-top:3px; }
+#skj .proc .arrow{ align-self:center; color:var(--muted); font-size:20px; padding:0 2px; }
+#skj .proc .step.last .node{ border-color:var(--accent); background:rgba(232,32,58,.08); }
+@media(max-width:720px){ #skj .proc{ flex-direction:column; } #skj .proc .arrow{ transform:rotate(90deg); padding:4px 0; } }
+#skj .proc-notes{ color:var(--muted); font-size:13px; margin-top:20px; }
+#skj .proc-notes p{ margin:3px 0; }
+#skj .proc-notes b{ color:#cfd3da; }
+
+/* pricing */
+#skj .price{ width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+#skj .price th, #skj .price td{ padding:16px 18px; text-align:left; border-bottom:1px solid var(--line); vertical-align:middle; font-size:14.5px; }
+#skj .price thead th{ background:var(--surface2); font-family:"Nanum Gothic",sans-serif; font-weight:800; color:#fff; font-size:14px; }
+#skj .price tbody tr:last-child td{ border-bottom:0; }
+#skj .price .item{ font-family:"Nanum Gothic",sans-serif; font-weight:700; color:#fff; }
+#skj .price .item small{ display:block; color:var(--muted); font-weight:400; font-size:12px; margin-top:2px; }
+#skj .price .desc{ color:var(--muted); word-break:keep-all; }
+#skj .price .won{ font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:18px; white-space:nowrap; text-align:right; }
+#skj .price tr.top td{ background:rgba(232,32,58,.06); }
+#skj .price tr.top .won{ color:#fff; background:var(--accent); border-radius:8px; padding:6px 12px; display:inline-block; }
+#skj .price-note{ color:var(--muted); font-size:12.5px; margin-top:12px; text-align:right; }
+@media(max-width:640px){ #skj .price .desc{ display:none; } #skj .price th.desch{ display:none; } }
+
+/* capabilities + contact */
+#skj .caps{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+@media(max-width:860px){ #skj .caps{ grid-template-columns:1fr; } }
+#skj .cap{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px; }
+#skj .cap .no{ font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:46px; color:#2a2d35; line-height:1; }
+#skj .cap .en{ font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:19px; margin-top:6px; }
+#skj .cap .ko{ color:var(--accent); font-weight:700; font-size:14px; margin:2px 0 10px; }
+#skj .cap .desc{ color:var(--muted); font-size:13.5px; word-break:keep-all; }
+#skj .cap .tags{ color:#666b75; font-size:12px; margin-top:10px; font-family:"Space Grotesk",sans-serif; }
+
+#skj .contact{ display:grid; grid-template-columns:1.1fr 1fr; gap:16px; margin-top:16px; }
+@media(max-width:860px){ #skj .contact{ grid-template-columns:1fr; } }
+#skj .cbox{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px; }
+#skj .cbox h4{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:16px; margin-bottom:14px; }
+#skj .cbox .row{ display:flex; gap:10px; font-size:14px; margin:9px 0; color:#cfd3da; }
+#skj .cbox .row b{ color:var(--muted); font-weight:500; min-width:64px; }
+#skj .cbox a{ color:var(--blue); text-decoration:none; }
+#skj .note{ color:var(--muted); font-size:13px; word-break:keep-all; }
+
+/* footer */
+#skj .foot{ border-top:1px solid var(--line); padding:34px 0 60px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+#skj .foot .b{ font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:16px; }
+#skj .foot .b .c{ color:var(--accent); }
+#skj .foot .x{ color:var(--muted); font-size:13px; }
+
+
+/* top playable youtube showcase */
+#skj .video-showcase{ padding:10px 0 66px; border-top:0; }
+#skj .video-hero{ position:relative; overflow:hidden; border:1px solid rgba(255,255,255,.10); border-radius:28px; padding:28px; background:linear-gradient(135deg, rgba(232,32,58,.17), rgba(61,123,253,.10) 42%, rgba(18,19,23,.98) 100%); box-shadow:0 24px 80px rgba(0,0,0,.34); }
+#skj .video-hero::before{ content:""; position:absolute; width:360px; height:360px; border-radius:50%; right:-120px; top:-160px; background:radial-gradient(circle, rgba(232,32,58,.35), transparent 65%); pointer-events:none; }
+#skj .video-head{ position:relative; display:flex; justify-content:space-between; align-items:flex-end; gap:22px; margin-bottom:22px; }
+#skj .video-head h2{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:clamp(24px,3.2vw,42px); line-height:1.12; letter-spacing:-.02em; word-break:keep-all; }
+#skj .video-head p{ color:#cfd3da; font-size:14.5px; max-width:470px; word-break:keep-all; }
+#skj .play-kicker{ display:inline-flex; align-items:center; gap:8px; color:#fff; background:rgba(232,32,58,.88); border-radius:999px; padding:7px 13px; font-size:12px; font-family:"Space Grotesk",sans-serif; font-weight:700; letter-spacing:.08em; margin-bottom:12px; text-transform:uppercase; }
+#skj .play-kicker::before{ content:"▶"; font-size:10px; }
+#skj .video-grid{ position:relative; display:grid; grid-template-columns:1.14fr .93fr .93fr; gap:16px; }
+#skj .video-card{ background:rgba(10,11,13,.72); border:1px solid rgba(255,255,255,.10); border-radius:22px; overflow:hidden; box-shadow:0 16px 48px rgba(0,0,0,.28); display:flex; flex-direction:column; min-width:0; }
+#skj .video-card.featured{ border-color:rgba(232,32,58,.45); }
+#skj .video-frame{ position:relative; aspect-ratio:16/9; background:#06070a; overflow:hidden; }
+#skj .video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+#skj .video-frame video{ position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:contain; background:#06070a; }
+#skj .video-card.featured .video-frame::after{ content:"AUTO PLAY · FILE"; position:absolute; left:14px; top:14px; z-index:2; display:inline-flex; align-items:center; border-radius:999px; padding:6px 10px; background:rgba(232,32,58,.92); color:#fff; font-family:"Space Grotesk",sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.08em; pointer-events:none; }
+#skj .video-body{ padding:16px 18px 18px; }
+#skj .video-tag{ display:inline-flex; align-items:center; gap:6px; color:var(--accent); font-family:"Space Grotesk",sans-serif; font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+#skj .video-title{ font-family:"Nanum Gothic",sans-serif; font-weight:800; font-size:17px; margin-top:5px; word-break:keep-all; }
+#skj .video-desc{ color:var(--muted); font-size:13px; margin-top:6px; word-break:keep-all; }
+#skj .video-link{ display:inline-flex; align-items:center; gap:7px; margin-top:13px; color:#fff; text-decoration:none; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05); border-radius:999px; padding:8px 12px; font-size:12.5px; font-weight:700; }
+#skj .video-link::before{ content:"▶"; width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:var(--accent); font-size:9px; }
+#skj .video-link:hover{ border-color:rgba(232,32,58,.72); background:rgba(232,32,58,.12); }
+@media(max-width:980px){ #skj .video-grid{ grid-template-columns:1fr; } #skj .video-head{ align-items:flex-start; flex-direction:column; } }
+@media(max-width:560px){ #skj .video-hero{ padding:20px; border-radius:22px; } }
+
+/* refined applied image treatment */
+#skj .media-stack{ display:grid; gap:14px; }
+#skj .image-appeal{ position:relative; overflow:hidden; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:var(--surface2); box-shadow:0 18px 50px rgba(0,0,0,.28); }
+#skj .image-appeal img{ width:100%; display:block; aspect-ratio:16/9; object-fit:cover; transform:scale(1.01); }
+#skj .image-appeal figcaption{ position:absolute; left:16px; right:16px; bottom:14px; padding:12px 14px; border-radius:14px; background:linear-gradient(90deg, rgba(10,11,13,.86), rgba(10,11,13,.48)); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.08); }
+#skj .image-appeal figcaption b{ display:block; font-family:"Nanum Gothic",sans-serif; font-size:15px; }
+#skj .image-appeal figcaption span{ display:block; color:#cfd3da; font-size:12.5px; margin-top:2px; }
+#skj .image-appeal.primary::before{ content:"PPL SCENE"; position:absolute; top:14px; left:14px; z-index:1; color:#fff; background:rgba(232,32,58,.9); border-radius:999px; padding:6px 10px; font-size:11px; font-family:"Space Grotesk",sans-serif; font-weight:700; letter-spacing:.08em; }
+#skj .case{ position:relative; transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+#skj .case:hover{ transform:translateY(-3px); border-color:rgba(232,32,58,.38); box-shadow:0 18px 50px rgba(0,0,0,.22); }
+#skj .case .case-img{ position:relative; overflow:hidden; }
+#skj .case .case-img::after{ content:""; position:absolute; inset:auto 0 0 0; height:58%; background:linear-gradient(180deg, transparent, rgba(10,11,13,.78)); pointer-events:none; }
+#skj .case .case-label{ position:absolute; left:14px; bottom:12px; z-index:1; display:inline-flex; align-items:center; gap:6px; color:#fff; background:rgba(10,11,13,.72); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:6px 10px; font-size:11.5px; font-family:"Space Grotesk",sans-serif; font-weight:700; letter-spacing:.05em; }
+#skj .point{ background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015)); }
+#skj .point img{ box-shadow:0 14px 34px rgba(0,0,0,.20); }
+
+/* refined pricing */
+#skj .pricing-box{ margin-top:24px; border:1px solid rgba(255,255,255,.10); border-radius:24px; overflow:hidden; background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(18,19,23,.96)); box-shadow:0 20px 70px rgba(0,0,0,.25); }
+#skj .pricing-top{ display:flex; justify-content:space-between; align-items:center; gap:18px; padding:24px 26px; border-bottom:1px solid var(--line); background:radial-gradient(80% 120% at 100% 0%, rgba(232,32,58,.18), transparent 55%); }
+#skj .pricing-top h3{ font-family:"Nanum Gothic",sans-serif; font-size:22px; font-weight:800; letter-spacing:-.01em; }
+#skj .pricing-top p{ color:var(--muted); font-size:13.5px; margin-top:5px; word-break:keep-all; }
+#skj .pricing-badge{ flex:none; text-align:right; }
+#skj .pricing-badge span{ display:inline-block; color:#fff; background:var(--accent); border-radius:999px; padding:7px 12px; font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:12px; letter-spacing:.08em; }
+#skj .pricing-badge b{ display:block; margin-top:6px; font-family:"Space Grotesk",sans-serif; font-size:26px; line-height:1; }
+#skj .price{ border:0; border-radius:0; background:transparent; }
+#skj .price th, #skj .price td{ padding:18px 22px; }
+#skj .price thead th{ background:rgba(255,255,255,.035); color:#cfd3da; border-bottom:1px solid var(--line); }
+#skj .price tbody tr{ transition:background .18s ease; }
+#skj .price tbody tr:hover td{ background:rgba(255,255,255,.025); }
+#skj .price tr.top td{ background:rgba(232,32,58,.085); }
+#skj .price .item{ font-size:15.5px; }
+#skj .price .item .tag{ display:inline-flex; align-items:center; margin-left:8px; color:#fff; background:rgba(61,123,253,.95); border-radius:999px; padding:3px 8px; font-family:"Space Grotesk",sans-serif; font-size:10.5px; letter-spacing:.05em; vertical-align:middle; }
+#skj .price tr.top .item .tag{ background:var(--accent); }
+#skj .price .desc{ color:#aeb4bf; }
+#skj .price .won{ color:#fff; font-size:20px; }
+#skj .price tr.top .won{ color:#fff; background:transparent; border-radius:0; padding:0; }
+#skj .price-note{ padding:0 26px 20px; margin-top:0; text-align:left; color:#7f858f; }
+@media(max-width:720px){ #skj .pricing-top{ flex-direction:column; align-items:flex-start; } #skj .pricing-badge{ text-align:left; } #skj .price th, #skj .price td{ padding:15px 14px; } #skj .price .won{ font-size:17px; } }
+
+
+/* === 0625 visual refinements: host / graph / advertisers / pricing === */
+#skj .host{
+  border-radius:20px;
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(18,19,23,.98));
+  box-shadow:0 20px 54px rgba(0,0,0,.26);
+}
+#skj .host img{
+  height:360px;
+  object-fit:cover;
+  object-position:center center;
+  filter:contrast(1.05) saturate(1.04);
+}
+#skj .host .body{
+  padding:22px 24px 26px;
+  background:linear-gradient(180deg, rgba(18,19,23,.94), #111217);
+}
+#skj .host .name{ font-size:24px; letter-spacing:-.02em; }
+#skj .host li{ font-size:14.5px; line-height:1.7; }
+
+#skj .audience-impact{
+  position:relative;
+  max-width:980px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:30px 30px 26px;
+  background:
+    radial-gradient(70% 95% at 52% 0%, rgba(95,208,191,.14), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(18,19,23,.98));
+  box-shadow:0 22px 70px rgba(0,0,0,.28);
+}
+#skj .chart-kpi{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:18px;
+  padding:16px 18px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;
+  background:rgba(10,11,13,.46);
+}
+#skj .chart-kpi .copy{ color:#cfd3da; font-size:14px; word-break:keep-all; }
+#skj .chart-kpi .copy b{ color:#fff; }
+#skj .chart-kpi .num{
+  flex:none;
+  font-family:"Space Grotesk",sans-serif;
+  font-weight:700;
+  font-size:clamp(34px,5vw,54px);
+  line-height:.95;
+  color:#fff;
+  text-shadow:0 0 26px rgba(95,208,191,.34);
+}
+#skj .chart-kpi .num span{ color:var(--teal); }
+#skj .chart{
+  height:238px;
+  justify-content:center;
+  gap:36px;
+}
+#skj .chart .group{ gap:9px; height:100%; }
+#skj .chart .group.age{
+  padding-right:34px;
+  border-right:1px dashed rgba(255,255,255,.16);
+}
+#skj .chart .group.gender{
+  margin-left:0;
+  padding-left:0;
+  border-left:0;
+  gap:14px;
+}
+#skj .bar{ width:50px; }
+#skj .bar .fill{
+  border-radius:10px 10px 2px 2px;
+  box-shadow:0 12px 26px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.20);
+}
+#skj .bar.core .fill{ background:linear-gradient(180deg, #73e2d3, var(--teal)); }
+#skj .bar.g .fill{ background:linear-gradient(180deg, #ffd86e, var(--yellow)); }
+#skj .bar .v{ top:-25px; font-size:14px; text-shadow:0 2px 8px rgba(0,0,0,.55); }
+#skj .bar .x{ font-size:11.5px; }
+#skj .chart-note{
+  text-align:center;
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+
+#skj .client-picto-wrap{
+  margin-top:26px;
+  padding:26px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:24px;
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(18,19,23,.94));
+  box-shadow:0 20px 64px rgba(0,0,0,.22);
+}
+#skj .client-picto-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+#skj .client-picto{
+  min-height:196px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:20px;
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:14px;
+}
+#skj .client-picto-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+#skj .client-picto .ico{
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:rgba(232,32,58,.12);
+  color:#fff;
+  border:1px solid rgba(232,32,58,.28);
+  font-family:"Space Grotesk",sans-serif;
+  font-weight:800;
+  font-size:17px;
+  letter-spacing:-.03em;
+}
+#skj .client-picto h3{
+  font-family:"Nanum Gothic",sans-serif;
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+#skj .logo-wall{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  margin-top:auto;
+}
+#skj .logo-wall img{
+  width:100%;
+  height:50px;
+  object-fit:contain;
+  padding:5px 7px;
+  border-radius:13px;
+  background:#fff;
+  box-shadow:0 10px 22px rgba(0,0,0,.20);
+}
+#skj .logo-wall.compact img{ height:42px; }
+#skj .logo-wall.wide{ grid-template-columns:1fr; }
+#skj .client-picto.featured{
+  background:linear-gradient(180deg, rgba(232,32,58,.10), rgba(255,255,255,.026));
+  border-color:rgba(232,32,58,.24);
+}
+#skj .client-picto-wrap .client-note{
+  margin-top:16px;
+  color:#8a909a;
+  font-size:12.5px;
+  text-align:center;
+}
+
+#skj .pricing-top{
+  align-items:center;
+  text-align:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:14px;
+}
+#skj .pricing-top h3{ font-size:26px; }
+#skj .pricing-top p{ max-width:720px; margin-left:auto; margin-right:auto; }
+#skj .pricing-badge{
+  text-align:center;
+  min-width:260px;
+  padding:16px 24px 18px;
+  border-radius:22px;
+  border:1px solid rgba(232,32,58,.35);
+  background:rgba(232,32,58,.10);
+  box-shadow:0 16px 42px rgba(232,32,58,.10);
+}
+#skj .pricing-badge span{ font-size:12.5px; }
+#skj .pricing-badge b{
+  margin-top:8px;
+  font-size:clamp(38px,5.2vw,56px);
+  line-height:1;
+  letter-spacing:-.03em;
+}
+#skj .price th:last-child,
+#skj .price td.won{ text-align:center !important; }
+#skj .price .won{
+  font-size:26px;
+  letter-spacing:-.03em;
+  vertical-align:middle;
+}
+#skj .price tr.top .won{
+  color:#fff;
+  font-size:31px;
+  text-shadow:0 0 20px rgba(232,32,58,.35);
+}
+@media(max-width:900px){
+  #skj .client-picto-grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:560px){
+  #skj .host img{ height:300px; }
+  #skj .chart-kpi{ flex-direction:column; text-align:center; }
+  #skj .chart{ gap:18px; height:220px; }
+  #skj .chart .group.age{ padding-right:18px; }
+  #skj .bar{ width:34px; }
+  #skj .client-picto-grid{ grid-template-columns:1fr; }
+  #skj .pricing-badge{ min-width:0; width:100%; }
+}
+
+/* === 0625 price/email update === */
+#skj .price th:last-child,
+#skj .price td.won{
+  width:180px;
+  min-width:180px;
+  text-align:center !important;
+  vertical-align:middle !important;
+}
+#skj .price td.won{
+  display:table-cell !important;
+  padding-left:18px !important;
+  padding-right:18px !important;
+}
+#skj .price tr.top td.won{
+  display:table-cell !important;
+  text-align:center !important;
+  background:rgba(232,32,58,.085);
+}
+@media(max-width:720px){
+  #skj .price th:last-child, #skj .price td.won{ width:116px; min-width:116px; }
+}
+
+/* 260625: PPL 자동재생 영역 안내문구 삭제 후 영상 중심으로 정리 */
+#skj .video-hero .video-grid{ margin-top:0; }
+#skj .video-card.featured .video-frame{ min-height:260px; }
+#skj .video-card.featured .video-frame video{ display:block; }
+
+</style>
+</head>
+<body>
+
+<!-- ===== 붙여넣기 시작 ===== -->
+<section id="skj-root"></section>
+<div id="skj">
+  <div class="wrap">
+
+    <!-- HERO -->
+    <header class="hero">
+      <span class="eyebrow"><span class="dot"></span> MBC × marketing CLOUD · 유튜브 PPL 제안</span>
+      <img class="logo" src="assets/img/logo_son.png" alt="손에잡히는경제">
+      <h1>손에잡히는경제</h1>
+      <p class="lead">신뢰 기반 경제 콘텐츠 안에 <b>자연스럽게 녹아드는 브랜드</b></p>
+      <div class="badges">
+        <span class="badge">구독자 <b>40만</b></span>
+        <span class="badge">최다 조회수 <b>150만</b></span>
+        <span class="badge">팟캐스트 <b>14년 1위</b></span>
+        <span class="badge">광고주 출연 <b>110+</b></span>
+      </div>
+    </header>
+
+    <!-- 영상 바로 보기 -->
+    <section class="video-showcase" aria-label="유튜브 영상 바로 보기">
+      <div class="video-hero">
+        <div class="video-grid">
+          <article class="video-card featured">
+            <div class="video-frame">
+              <video autoplay muted loop playsinline controls preload="auto" title="손에잡히는경제 PPL 영상 레퍼런스">
+                <source src="assets/video/sonkyungje_ppl_reference.mp4" type="video/mp4">
+                브라우저가 HTML5 동영상 재생을 지원하지 않습니다.
+              </video>
+            </div>
+          </article>
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/nLlZl6qQ6bs" title="손에잡히는경제 커피타임 영상" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+              <span class="video-tag">Reference</span>
+              <div class="video-title">브랜디드 대화형 노출 예시</div>
+              <p class="video-desc">제품·서비스 메시지가 정보성 콘텐츠 안에 어떻게 녹아드는지 확인할 수 있습니다.</p>
+              <a class="video-link" href="https://www.youtube.com/watch?v=nLlZl6qQ6bs&list=PL-5ePmULnsmSGB9gfok7BcbxSDEnR9UnZ&index=3" target="_blank" rel="noopener">YouTube에서 재생</a>
+            </div>
+          </article>
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/videoseries?list=PL-5ePmULnsmSGB9gfok7BcbxSDEnR9UnZ" title="손에잡히는경제 커피타임 재생목록" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+              <span class="video-tag">Playlist</span>
+              <div class="video-title">커피타임 전체 레퍼런스</div>
+              <p class="video-desc">개별 영상뿐 아니라 연속 시청 가능한 재생목록을 함께 노출해 매체 이해도를 높입니다.</p>
+              <a class="video-link" href="https://www.youtube.com/playlist?list=PL-5ePmULnsmSGB9gfok7BcbxSDEnR9UnZ" target="_blank" rel="noopener">재생목록 보기</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 채널 소개 -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> Channel</span>
+      <h2 class="sec-head">대한민국 대표 경제 콘텐츠</h2>
+      <p class="sec-sub">취업준비생부터 부동산·코인·주식 투자자, 산업 동향을 살피는 CEO까지 — 경제 지식이 필요할 때 가장 먼저 찾는 채널.</p>
+      <div class="grid2" style="margin-top:28px">
+        <img class="shot" src="assets/img/channel.png" alt="손에잡히는경제 유튜브 채널">
+        <div>
+          <div class="stats" style="grid-template-columns:repeat(2,1fr); margin-top:0">
+            <div class="stat"><div class="n">40.2<span class="u">만</span></div><div class="l">유튜브 구독자</div></div>
+            <div class="stat"><div class="n">1.8<span class="u">천</span></div><div class="l">누적 동영상</div></div>
+            <div class="stat"><div class="n">150<span class="u">만</span></div><div class="l">최다 조회수</div></div>
+            <div class="stat"><div class="n">14<span class="u">년</span></div><div class="l">팟캐스트 1위</div></div>
+          </div>
+          <p class="sec-sub" style="margin-top:16px">박종훈·정희원 등 각 분야 전문가가 출연하는 영상이 회당 <span class="hl-b">100만 회 이상</span> 조회되는 검증된 영향력.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 채널 개요 4 -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> Overview</span>
+      <h2 class="sec-head">영향력이 매출로 이어지는 채널</h2>
+      <div class="grid4" style="margin-top:26px">
+        <div class="pcard"><span class="k">대한민국 대표 경제 콘텐츠</span><p>국내 TOP 티어 경제 전문가 <b style="color:#fff">이진우 MC</b> 진행</p></div>
+        <div class="pcard"><span class="k">부동의 팟캐스트 1위</span><p>스포티파이 · 애플 팟캐스트 · 팟빵 전 채널 상위</p></div>
+        <div class="pcard"><span class="k">유튜브 구독자 40만</span><p>채널 개설 이후 <span class="big">구독자 누적 성장률 1,200%</span></p></div>
+        <div class="pcard"><span class="k">뛰어난 구매 전환율</span><p><span class="big">PPL 비용 대비 매출 1,000%</span> 달성 사례 보유</p></div>
+      </div>
+    </section>
+
+    <!-- 이유 #1 팬덤 -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> Why #1</span>
+      <h2 class="sec-head">출연자에 대한 높은 팬덤</h2>
+      <p class="sec-sub">신뢰받는 진행자가 브랜드를 직접 다루기에, 메시지가 곧 신뢰가 됩니다.</p>
+      <div class="grid2" style="margin-top:26px; align-items:stretch">
+        <div class="host">
+          <img src="assets/img/host_lee.png" alt="이진우 MC">
+          <div class="body">
+            <div class="name">이진우 <span>MC</span></div>
+            <ul>
+              <li>2011년부터 14년간 〈손에잡히는경제〉 진행</li>
+              <li>유튜브 〈삼프로TV〉 〈언더스탠딩〉 대표 진행자</li>
+              <li>2015년 MBC 방송연예대상 라디오부문 우수상</li>
+            </ul>
+          </div>
+        </div>
+        <div class="host">
+          <img src="assets/img/host_park.png" alt="박정호">
+          <div class="body">
+            <div class="name">박정호</div>
+            <ul>
+              <li>2023년부터 〈손에잡히는경제 플러스〉 진행</li>
+              <li>한국경제산업연구원 부원장</li>
+              <li>전) KDI 경제정보센터 팀장</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 이유 #2 구매 결정층 -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> Why #2</span>
+      <h2 class="sec-head">구매 의사결정층이 몰린 채널</h2>
+      <p class="sec-sub">손경제의 광고는 <span class="hl">설득이 아닌 ‘신뢰’</span>로 작동합니다.</p>
+      <div class="chartwrap audience-impact" style="margin-top:26px">
+        <div class="chart-kpi"><div class="copy"><b>35–64세 핵심 구매층이 압도적으로 집중</b><br>경제 콘텐츠에 반응하는 고관여 시청자가 실제 소비 결정층으로 연결됩니다.</div><div class="num">81<span>%</span></div></div>
+        <div class="chart">
+          <div class="group age">
+            <div class="bar"><div class="fill" style="height:8.6%"><span class="v">6%</span></div><span class="x">25–34</span></div>
+            <div class="bar core"><div class="fill" style="height:24.3%"><span class="v">17%</span></div><span class="x">35–44</span></div>
+            <div class="bar core"><div class="fill" style="height:48.6%"><span class="v">34%</span></div><span class="x">45–54</span></div>
+            <div class="bar core"><div class="fill" style="height:38.6%"><span class="v">27%</span></div><span class="x">55–64</span></div>
+            <div class="bar"><div class="fill" style="height:18.6%"><span class="v">13%</span></div><span class="x">65+</span></div>
+          </div>
+          <div class="group gender">
+            <div class="bar g"><div class="fill" style="height:42.9%"><span class="v">30%</span></div><span class="x">여성</span></div>
+            <div class="bar g"><div class="fill" style="height:100%"><span class="v">70%</span></div><span class="x">남성</span></div>
+          </div>
+        </div>
+        <p class="chart-note">* 3060대 경제활동인구 시청 비율 <b style="color:#fff">81%</b> · 타 채널 대비 여성 시청자 비중이 높은 핵심 소비 채널</p>
+      </div>
+    </section>
+
+    <!-- PPL 콘텐츠 소개 -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> PPL Content</span>
+      <h2 class="sec-head">PPL 콘텐츠 — 커피타임</h2>
+      <p class="sec-sub">손경제의 유튜브 오리지널 콘텐츠. 본방보다 재미있는 출연진의 일상 이야기 속에 브랜드가 자연스럽게 등장합니다.</p>
+      <div class="grid2" style="margin-top:26px">
+        <div class="media-stack">
+          <figure class="image-appeal primary">
+            <img src="assets/img/studio1.png" alt="커피타임 — 오늘도 광고주님이 오셨습니다">
+            <figcaption><b>스튜디오 안의 자연스러운 브랜드 등장</b><span>진행자 대화 흐름 안에서 제품과 메시지를 부담 없이 노출</span></figcaption>
+          </figure>
+          <figure class="image-appeal">
+            <img src="assets/img/studio2.png" alt="커피타임 협찬 콘텐츠">
+            <figcaption><b>정보성 콘텐츠로 설계되는 PPL</b><span>광고처럼 보이지 않되, 브랜드 이해와 구매 이유를 선명하게 전달</span></figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3 style="font-family:'Nanum Gothic';font-weight:800;font-size:22px">이것은 협찬인가, 콘텐츠인가?</h3>
+          <ul style="list-style:none;margin-top:14px">
+            <li style="position:relative;padding-left:18px;margin:12px 0;color:#cfd3da;word-break:keep-all"><span style="position:absolute;left:0;color:var(--accent)">●</span> 광고주가 직접 출연하는 <span class="hl-b">커피타임의 브랜디드 콘텐츠</span></li>
+            <li style="position:relative;padding-left:18px;margin:12px 0;color:#cfd3da;word-break:keep-all"><span style="position:absolute;left:0;color:var(--accent)">●</span> 커피타임 출연진과 광고주의 만남 — 홍보와 정보가 어우러진 국내 최초 컨셉의 지식 콘텐츠</li>
+            <li style="position:relative;padding-left:18px;margin:12px 0;color:#cfd3da;word-break:keep-all"><span style="position:absolute;left:0;color:var(--accent)">●</span> 지금까지 <span class="hl-y">110여 개 업체</span>의 광고주 출연 <span style="color:var(--muted);font-size:12px">(2025.12 기준)</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PPL 3 Points -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> PPL Points</span>
+      <h2 class="sec-head">콘텐츠만의 PPL 포인트</h2>
+      <div class="grid3" style="margin-top:26px">
+        <div class="point"><div class="step">Point 1.</div><div class="h">110개 업체 출연</div><div class="s">다양한 업종의 광고주</div><img src="assets/img/coffee1.png" alt=""><div class="d">단순 홍보가 아닌 정보로 녹아든 콘텐츠</div></div>
+        <div class="point"><div class="step">Point 2.</div><div class="h">일평균 조회수 17.7만</div><div class="s">(롱폼 기준)</div><img src="assets/img/studio1.png" alt=""><div class="d">전문가 맥락 속 자연스러운 브랜드 이해</div></div>
+        <div class="point"><div class="step">Point 3.</div><div class="h">매출 1,000% 증명</div><div class="s">(PPL 비용 대비, 실제 집행)</div><img src="assets/img/studio2.png" alt=""><div class="d">특유의 경쟁력으로 뛰어난 PPL 효과</div></div>
+      </div>
+    </section>
+
+    <!-- 대표 진행사례 -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> Case Study</span>
+      <h2 class="sec-head">트래픽 3배·매출 1,000% — 다시 찾는 고성과 매체</h2>
+      <div class="grid3" style="margin-top:26px">
+        <div class="case">
+          <div class="case-img"><img src="assets/img/case1.png" alt="현관앞키친"><span class="case-label">TRAFFIC ×3</span></div>
+          <div class="body"><div class="t">반찬배달 <b>‘현관앞키친’</b></div>
+            <ul><li>방송 직후 이틀간 <b>매출 1,000만원</b></li><li><b>트래픽 3배</b> 증가</li></ul></div>
+        </div>
+        <div class="case">
+          <div class="case-img"><img src="assets/img/case2.png" alt="온기 화장품"><span class="case-label">RE-ORDER CASE</span></div>
+          <div class="body"><div class="t"><b>온기</b> 화장품</div>
+            <ul><li>PPL 성공 후 재출연 광고주</li><li>월 매출 300만원 → <b>1억 4천만원</b></li><li>재구매율 <b>30%</b></li></ul></div>
+        </div>
+        <div class="case">
+          <div class="case-img"><img src="assets/img/case3.png" alt="삼분의일 매트리스"><span class="case-label">ROAS 1,000%</span></div>
+          <div class="body"><div class="t">매트리스 <b>‘삼분의일’</b></div>
+            <ul><li>‘더보기’ 구매 링크만으로</li><li>광고비 대비 <b>1,000% 매출</b> 달성</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> FAQ</span>
+      <h2 class="sec-head">자주 묻는 질문</h2>
+      <div class="faq" style="margin-top:24px">
+        <details open><summary><span class="q">Q1.</span> 이것은 협찬인가요, 콘텐츠인가요?</summary><div class="a">광고주가 직접 등장해 브랜드를 소개하는 콘텐츠 형식을 취한 협찬입니다.</div></details>
+        <details><summary><span class="q">Q2.</span> 손경제가 제시하는 대본이 있나요?</summary><div class="a">대본은 따로 없습니다. 사전 미팅 내용을 토대로 광고주가 브랜드에 대해 자유롭게 이야기해주시면 됩니다.</div></details>
+        <details><summary><span class="q">Q3.</span> 꼭 회사 대표가 출연해야 하나요?</summary><div class="a">대표님이 아니더라도 회사 임직원 누구나 출연하셔도 좋습니다.</div></details>
+        <details><summary><span class="q">Q4.</span> 문의부터 업로드까지 기간은?</summary><div class="a">문의 당시 녹화 예정 스케줄에 따라 최소 3주에서 4주 소요 예상됩니다.</div></details>
+      </div>
+    </section>
+
+    <!-- 프로세스 -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> Process</span>
+      <h2 class="sec-head">콘텐츠 진행 프로세스</h2>
+      <p class="sec-sub">문의 시점부터 방영까지 평균 3~4주 내외 소요</p>
+      <div class="proc" style="margin-top:28px">
+        <div class="step"><div class="node"><div class="d">D-21</div><div class="lab">광고 문의</div></div></div>
+        <div class="arrow">→</div>
+        <div class="step"><div class="node"><div class="d">D-17</div><div class="lab">제작진 미팅</div><div class="sub">유선 or 대면</div></div></div>
+        <div class="arrow">→</div>
+        <div class="step"><div class="node"><div class="d">D-14</div><div class="lab">진행 확정 ·<br>계약서 작성</div></div></div>
+        <div class="arrow">→</div>
+        <div class="step"><div class="node"><div class="d">D-7</div><div class="lab">촬영 (녹화)</div></div></div>
+        <div class="arrow">→</div>
+        <div class="step last"><div class="node"><div class="d">D-DAY</div><div class="lab">업로드</div></div></div>
+      </div>
+      <div class="proc-notes">
+        <p>* 촬영 전 <b>계약서 작성은 반드시 필수</b>입니다.</p>
+        <p>* 광고주의 자유도를 위해 대본은 없으나, 촬영 전 제작진 사전미팅은 필수입니다.</p>
+        <p>* 진행 확정은 계약서 작성과 함께 안내드리며, 사전 미팅만으로는 확정되지 않습니다.</p>
+      </div>
+    </section>
+
+    <!-- 진행 업체 -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> Advertisers</span>
+      <h2 class="sec-head">카테고리 제한 없이 진행한 110여 건</h2>
+      <p class="sec-sub">금융/투자 · 자동차 · B2B 솔루션 · 프리미엄 가전/IT 등 기업·개인·상품 제한 없이 커피타임 브랜디드 진행 <span style="color:#666b75">(2025.12 기준)</span></p>
+      <div class="client-picto-wrap" aria-label="진행 업체 카테고리와 브랜드 로고">
+        <div class="client-picto-grid">
+          <div class="client-picto featured">
+            <div class="client-picto-head"><div class="ico">₩</div><h3>금융/투자</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/toss.png" alt="toss"><img src="assets/img/logo_tiles/koreainvest.png" alt="한국투자신탁운용"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">DEL</div><h3>배달 서비스</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/gsretail.png" alt="GS리테일"><img src="assets/img/logo_tiles/frontkitchen.png" alt="현관앞키친"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">B2B</div><h3>B2B 솔루션</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/skbroadband.png" alt="SK broadband"><img src="assets/img/logo_tiles/teamdata21.png" alt="TeamData21"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">COM</div><h3>커머스</h3></div>
+            <div class="logo-wall compact"><img src="assets/img/logo_tiles/alo.png" alt="ALO"><img src="assets/img/logo_tiles/commerce_icon.png" alt="커머스 브랜드"><img src="assets/img/logo_tiles/breezm.png" alt="breezm"><img src="assets/img/logo_tiles/sambun.png" alt="삼분의일"><img src="assets/img/logo_tiles/publisher.png" alt="THE PUBLISHER"><img src="assets/img/logo_tiles/leesol.png" alt="LEESOL"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">＋</div><h3>의료</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/minddental.png" alt="마인드치과"><img src="assets/img/logo_tiles/minish.png" alt="MINISH"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">店</div><h3>프랜차이즈</h3></div>
+            <div class="logo-wall compact"><img src="assets/img/logo_tiles/myfranchise.png" alt="마이프차"><img src="assets/img/logo_tiles/brand_round.png" alt="프랜차이즈 브랜드"><img src="assets/img/logo_tiles/yeoljeong.png" alt="열정국밥"></div>
+          </div>
+          <div class="client-picto">
+            <div class="client-picto-head"><div class="ico">EDU</div><h3>교육/기관</h3></div>
+            <div class="logo-wall"><img src="assets/img/logo_tiles/niied.png" alt="교육부 국립국제교육원"><img src="assets/img/logo_tiles/hri.png" alt="현대경제연구원"></div>
+          </div>
+          <div class="client-picto featured">
+            <div class="client-picto-head"><div class="ico">110+</div><h3>누적 진행</h3></div>
+            <div class="logo-wall wide"><img src="assets/img/logo_tiles/toss.png" alt="카테고리 제한 없는 브랜드 진행"><img src="assets/img/logo_tiles/skbroadband.png" alt="브랜드 맞춤 구성"></div>
+          </div>
+        </div>
+        <p class="client-note">브랜드 로고는 살리고, 기존 파란 배경만 걷어낸 로고 타일형 구성으로 정돈했습니다.</p>
+      </div>
+    </section>
+
+    <!-- 단가표 -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> Pricing</span>
+      <h2 class="sec-head">단가표</h2>
+      <div class="pricing-box">
+        <div class="pricing-top">
+          <div>
+            <h3>커피타임 PPL 패키지</h3>
+            <p>브랜드의 목적에 맞춰 출연형 브랜디드 콘텐츠부터 제품 노출형까지 단계별 선택이 가능합니다.</p>
+          </div>
+          <div class="pricing-badge"><span>BEST PACKAGE</span><b>600만원</b></div>
+        </div>
+        <table class="price">
+          <thead><tr><th>항목</th><th class="desch">상세 내용</th><th style="text-align:right">단가 (VAT 제외)</th></tr></thead>
+          <tbody>
+            <tr class="top"><td class="item">커피타임 브랜디드 출연 <span class="tag">BEST</span><small>이것은 협찬인가, 콘텐츠인가</small></td><td class="desc">광고주 직접 출연 · 1시간 이상 대화형 콘텐츠 · 브랜드 스토리/제품 USP 전달</td><td class="won">600만원</td></tr>
+            <tr><td class="item">제품 노출 + 언급 + 시연 <span class="tag">PREMIUM</span><small>제품 체험형 메시지 강화</small></td><td class="desc">제품 실물 노출, 핵심 메시지 언급, 사용 장면 시연까지 포함한 고관여 노출</td><td class="won">480만원</td></tr>
+            <tr><td class="item">제품 노출 + 언급 <span class="tag">STANDARD</span><small>브랜드/제품 인지도 확보</small></td><td class="desc">커피타임 흐름 안에서 제품 노출과 자연스러운 구두 언급 진행</td><td class="won">240만원</td></tr>
+            <tr><td class="item">제품 단순 노출 <span class="tag">LIGHT</span><small>저비용 테스트 집행</small></td><td class="desc">스튜디오/진행 화면 내 제품 또는 패키지 비주얼 중심 노출</td><td class="won">120만원</td></tr>
+            <tr><td class="item">판넬 광고 <span class="tag">DISPLAY</span><small>로고·카피 고정 노출</small></td><td class="desc">진행석 판넬 또는 브랜드 로고·메시지 CG 노출 — 손경제 본방송 / 플러스 / 커피타임 중 택1</td><td class="won">120만원</td></tr>
+          </tbody>
+        </table>
+        <p class="price-note">* 단가는 모두 VAT 제외 기준이며, 최종 구성·노출 범위는 집행 전 협의 기준으로 확정됩니다.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT / Capabilities -->
+    <section>
+      <span class="eyebrow"><span class="dot"></span> Contact</span>
+      <h2 class="sec-head">marketing CLOUD</h2>
+      <p class="sec-sub">데이터 기반 퍼포먼스부터 크리에이티브까지 — 클라이언트의 성장을 함께 설계합니다.</p>
+      <div class="caps" style="margin-top:26px">
+        <div class="cap"><div class="no">01</div><div class="en">Performance Marketing</div><div class="ko">데이터 기반 효율 향상</div><div class="desc">디지털 광고 전문성으로 데이터를 이해하고 최적화 전략을 구현</div><div class="tags">Data driven · Integrated marketing</div></div>
+        <div class="cap"><div class="no">02</div><div class="en">Digital CX</div><div class="ko">고객경험 설계</div><div class="desc">타겟 인사이트 기반으로 디지털 고객경험을 극대화</div><div class="tags">Brand campaign · Promotion · CX consulting</div></div>
+        <div class="cap"><div class="no">03</div><div class="en">Trendy Creative</div><div class="ko">트렌디 크리에이티브</div><div class="desc">디지털 채널별 전략에 따른 최적화 크리에이티브 구현</div><div class="tags">On·Offline creative · New media</div></div>
+      </div>
+      <div class="contact">
+        <div class="cbox">
+          <h4>PPL 문의</h4>
+          <p class="note">본 제안서는 marketing CLOUD와 손에잡히는경제 유튜브 채널의 협업 하에 2026년 1월 배포된 버전입니다. 진행·집행 전 확인을 위해 아래로 문의해 주세요.</p>
+          <div class="row" style="margin-top:14px"><b>이메일</b><a href="mailto:content@macloud.co.kr">content@macloud.co.kr</a></div>
+          <div class="row"><b>전화</b><span>070-4918-0085</span></div>
+        </div>
+        <div class="cbox">
+          <h4>marketing CLOUD</h4>
+          <div class="row"><b>주소</b><span>서울특별시 강남구 봉은사로 524, 2층 201호<br><span style="color:var(--muted)">(삼성동, 스파크플러스 코엑스점)</span></span></div>
+          <div class="row"><b>웹</b><a href="https://www.macloud.co.kr">www.macloud.co.kr</a></div>
+          <div class="row"><b>메일</b><a href="mailto:content@macloud.co.kr">content@macloud.co.kr</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="foot">
+      <div class="b">MBC <span style="color:var(--muted)">×</span> marketing <span class="c">CLOUD</span></div>
+      <div class="x">© 2026 marketing CLOUD. All rights reserved.</div>
+    </footer>
+
+  </div>
+</div>
+<!-- ===== 붙여넣기 끝 ===== -->
+
+</body>
+</html>
