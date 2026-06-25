@@ -492,6 +492,11 @@
   #skj .price th:last-child, #skj .price td.won{ width:116px; min-width:116px; }
 }
 
+/* 260625: PPL 자동재생 영역 안내문구 삭제 후 영상 중심으로 정리 */
+#skj .video-hero .video-grid{ margin-top:0; }
+#skj .video-card.featured .video-frame{ min-height:260px; }
+#skj .video-card.featured .video-frame video{ display:block; }
+
 </style>
 </head>
 <body>
@@ -518,13 +523,6 @@
     <!-- 영상 바로 보기 -->
     <section class="video-showcase" aria-label="유튜브 영상 바로 보기">
       <div class="video-hero">
-        <div class="video-head">
-          <div>
-            <span class="play-kicker">Play First</span>
-            <h2>제안서 최상단에서<br>자동 재생되는 PPL 레퍼런스</h2>
-          </div>
-          <p>광고주가 제안서를 열자마자 업로드된 PPL 레퍼런스 영상이 자동 재생되고, 이어서 핵심 유튜브 영상과 전체 재생목록을 확인할 수 있도록 배치했습니다.</p>
-        </div>
         <div class="video-grid">
           <article class="video-card featured">
             <div class="video-frame">
@@ -532,12 +530,6 @@
                 <source src="assets/video/sonkyungje_ppl_reference.mp4" type="video/mp4">
                 브라우저가 HTML5 동영상 재생을 지원하지 않습니다.
               </video>
-            </div>
-            <div class="video-body">
-              <span class="video-tag">Auto Play Reference</span>
-              <div class="video-title">PPL 영상 파일 자동 재생</div>
-              <p class="video-desc">제안서를 열면 업로드된 레퍼런스 영상이 음소거 상태로 자동 재생되어 실제 노출 톤과 구성을 즉시 확인할 수 있습니다.</p>
-              <a class="video-link" href="assets/video/sonkyungje_ppl_reference.mp4" target="_blank" rel="noopener">영상 파일 크게 보기</a>
             </div>
           </article>
           <article class="video-card">
